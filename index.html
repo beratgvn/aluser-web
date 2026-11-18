@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aluser | Kıbrıs Alüminyum Pencere, Kapı, Pergola ve Cephe Sistemleri</title>
+<meta name="description" content="Aluser, 1994'ten bu yana Kıbrıs'ta alüminyum pencere, kapı, pergola, biyoklimatik pergola, kış bahçesi, cephe giydirme ve cam küpeşte sistemleri üretiyor. Keşif ve teklif için: 0539 108 45 45.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1554B8">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Aluser Alüminyum">
+<meta property="og:title" content="Aluser | Kıbrıs Alüminyum Pencere, Kapı, Pergola ve Cephe Sistemleri">
+<meta property="og:description" content="Aluser, 1994'ten bu yana Kıbrıs'ta alüminyum pencere, kapı, pergola, biyoklimatik pergola, kış bahçesi, cephe giydirme ve cam küpeşte sistemleri üretiyor. Keşif ve teklif için: 0539 108 45 45.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap">
+<link rel="preload" as="image" href="img/hero.webp" imagesrcset="img/hero-1280.webp 1280w, img/hero.webp 2560w" imagesizes="100vw">
+<style>
+/* Yerleşim: beyaz çizim paftası. Geniş boşluk, ince profil çizgileri, cetvel motifleri;
+   tek cesur an girişteki pencerenin kaydırdıkça açılması. */
+:root{
+  --paper:#FFFFFF;
+  --ink:#0B2A5B;
+  --blue:#1554B8;
+  --sky:#5488C9;
+  --mist:#EEF3FA;
+  --line:#D5DDEA;
+  --muted:#55657F;
+  --frame:#383E42;
+  --pale:#B9C7E0;
+  --display:"Poppins","Segoe UI",system-ui,-apple-system,sans-serif;
+  --body:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  --header-h:72px;
+  --gl:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px));
+  --gr:max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3,p,figure,dl,dd,ol,ul{margin:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1384px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ol{color:transparent;-webkit-text-stroke:2px var(--blue)}
+.ol-w{color:transparent;-webkit-text-stroke:2px #FFFFFF}
+@supports not (-webkit-text-stroke:1px #000){.ol{color:var(--blue)}.ol-w{color:#FFFFFF}}
+@media (max-width:600px){.ol,.ol-w{-webkit-text-stroke-width:1.5px}}
+h2{font-weight:700;font-size:clamp(34px,4.6vw,64px);line-height:1.05;letter-spacing:-.025em}
+h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
+
+/* Düğmeler */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 28px;border-radius:999px;font-family:var(--display);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:background-color .25s,color .25s,transform .25s}
+.btn svg{flex:none;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--blue);color:#FFFFFF}
+.btn-primary:hover{background:var(--ink)}
+.btn-line{padding:0;min-height:44px;border-radius:0;color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.btn-line:hover{color:var(--blue);box-shadow:inset 0 -2px 0 var(--blue)}
+.btn-white{background:#FFFFFF;color:var(--blue)}
+.btn-white:hover{background:var(--ink);color:#FFFFFF}
+
+/* Üst bant */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.hdr.scrolled{border-bottom-color:var(--line)}
+.hdr-in{height:var(--header-h);display:flex;align-items:center;gap:clamp(16px,3vw,36px)}
+.logo{display:block;flex:none}
+.logo img{height:30px;width:auto;display:block}
+.nav{display:flex;gap:clamp(18px,2.4vw,34px);margin-left:auto;font-family:var(--display);font-weight:500;font-size:15px}
+.nav a{text-decoration:none;position:relative;padding:8px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1)}
+.call{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px 0 6px;border-radius:999px;background:var(--blue);color:#FFFFFF;font-family:var(--display);font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;flex:none;transition:background-color .25s}
+.call:hover{background:var(--ink)}
+.call i{width:32px;height:32px;border-radius:50%;background:#FFFFFF;display:grid;place-items:center;flex:none}
+.menu-btn{display:none;width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;flex:none;position:relative}
+.menu-btn span{position:absolute;left:10px;right:10px;height:2px;background:var(--ink);transition:transform .3s,top .3s}
+.menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:25px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){top:21px;transform:rotate(-45deg)}
+.mnav{border-top:1px solid var(--line);background:var(--paper)}
+.mnav .wrap{display:grid;padding-block:10px 22px}
+.mnav a{font-family:var(--display);font-weight:600;font-size:22px;text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line)}
+@media (max-width:900px){
+  :root{--header-h:64px}
+  .nav{display:none}
+  .call{margin-left:auto}
+  .menu-btn{display:block}
+  .logo img{height:26px}
+}
+@media (max-width:520px){
+  .call{padding:0 6px}
+  .call span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+}
+
+/* Giriş: pencere */
+.hero-stage{position:relative;padding-block:clamp(20px,4vh,44px) clamp(40px,8vh,84px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,72px);align-items:center}
+.hero h1{font-weight:800;font-size:clamp(54px,9.4vw,140px);line-height:.98;letter-spacing:-.04em}
+.hero h1 span{display:block}
+.lead{font-size:clamp(17px,1.45vw,20px);line-height:1.55;max-width:33em;color:var(--muted);margin-top:clamp(26px,4.4vh,44px)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin-top:clamp(22px,4vh,36px)}
+.hero-slot{position:relative;justify-self:end;height:clamp(300px,calc(100vh - var(--header-h) - 150px),660px);aspect-ratio:4/5;max-width:100%}
+.hero-media{position:absolute;inset:0;overflow:hidden;background:var(--mist)}
+.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,24,58,.78) 0%,rgba(6,24,58,.2) 46%,rgba(6,24,58,0) 72%);opacity:var(--scrim,0)}
+.hero-frame{position:absolute;inset:0;border:10px solid var(--frame);pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 34px 60px -34px rgba(11,42,91,.45)}
+.mullion{position:absolute;top:0;bottom:0;left:50%;width:10px;margin-left:-5px;background:var(--frame);box-shadow:inset 1px 0 0 rgba(255,255,255,.16)}
+.mullion::after{content:"";position:absolute;left:16px;top:50%;width:4px;height:46px;margin-top:-23px;border-radius:2px;background:#C9CED6}
+.hero-statement{display:none}
+.hint{display:none}
+.hero.is-pin{height:calc(100vh - var(--header-h) + 115vh);height:calc(100svh - var(--header-h) + 115vh)}
+.hero.is-pin .hero-stage{position:sticky;top:calc(var(--header-h) + env(safe-area-inset-top,0px));height:calc(100vh - var(--header-h));height:calc(100svh - var(--header-h));overflow:hidden}
+.hero.is-pin .hero-grid{height:100%}
+.hero.is-pin .hero-media{z-index:2;will-change:clip-path}
+.hero.is-pin .hero-media img{will-change:transform}
+.hero.is-pin .hero-frame{z-index:3;inset:auto}
+.hero.is-pin .hero-statement{display:block;position:absolute;left:0;right:0;bottom:clamp(28px,7vh,76px);z-index:4;opacity:0;color:#FFFFFF;pointer-events:none}
+.hero-statement p{font-family:var(--display);font-weight:800;font-size:clamp(34px,6.2vw,96px);line-height:1.03;letter-spacing:-.03em}
+.hero-statement span{display:block}
+.hero.is-pin .hint{display:flex;align-items:center;gap:12px;position:absolute;left:0;right:0;bottom:18px;z-index:1;font-size:13px;font-weight:500;color:var(--muted)}
+.hint i{display:block;width:1px;height:30px;background:var(--line);position:relative;overflow:hidden}
+.hint i::after{content:"";position:absolute;left:0;top:0;width:1px;height:12px;background:var(--blue);animation:hint 1.8s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes hint{0%{transform:translateY(-12px)}100%{transform:translateY(30px)}}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:26px}
+  .hero-slot{justify-self:stretch;width:100%;height:auto;aspect-ratio:4/5;max-height:none}
+  .hero.is-pin .hero-grid{display:flex;flex-direction:column;gap:22px}
+  .hero.is-pin .hero-slot{flex:1 1 auto;min-height:180px;aspect-ratio:auto}
+  .hero.is-pin .hero-stage{padding-bottom:26px}
+  .hero.is-pin .hint{display:none}
+  .hero-frame{border-width:8px}
+  .mullion{width:8px;margin-left:-4px}
+}
+
+/* Hakkımızda */
+.about{padding-block:clamp(84px,13vw,176px) clamp(72px,10vw,140px)}
+.statement{font-family:var(--display);font-weight:600;font-size:clamp(25px,3.6vw,54px);line-height:1.22;letter-spacing:-.02em;max-width:24em}
+.statement .w{color:var(--pale);transition:color .4s}
+.statement .w.on{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px);margin-top:clamp(52px,8vw,112px)}
+.facts > div{border-top:1px solid var(--ink);padding-top:20px}
+.facts p{color:var(--muted);font-size:16px;margin-top:8px;max-width:30em}
+@media (max-width:760px){.facts{grid-template-columns:minmax(0,1fr)}}
+
+/* Ürünler: yatay ray */
+.products{--cw:clamp(250px,25vw,372px);--edge-l:max(var(--gl),calc((100vw - 1384px)/2 + var(--gl)));--edge-r:max(var(--gr),calc((100vw - 1384px)/2 + var(--gr)));scroll-margin-top:var(--header-h)}
+.p-stage{padding-block:clamp(20px,3vh,32px) clamp(20px,3vh,28px);display:flex;flex-direction:column;gap:clamp(20px,3vh,30px)}
+.p-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 40px;width:100%}
+.p-head p{color:var(--muted);max-width:30em;font-size:16px}
+.p-viewport{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.p-viewport::-webkit-scrollbar{display:none}
+.p-track{display:flex;gap:clamp(18px,2.2vw,30px);list-style:none;padding:0 var(--edge-r) 0 var(--edge-l);width:max-content}
+.card{flex:none;width:var(--cw);scroll-snap-align:start;scroll-margin-left:var(--edge-l)}
+.card figure{height:calc(var(--cw)*1.25);overflow:hidden;background:var(--mist)}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card:hover img{transform:scale(1.045)}
+.card h3{margin-top:18px}
+.card p{color:var(--muted);font-size:15.5px;line-height:1.5;margin-top:6px}
+.card .types{color:var(--blue);font-size:14px;font-weight:500;margin-top:8px}
+.card-cta{background:var(--blue);color:#FFFFFF;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:clamp(22px,2.4vw,34px);min-height:calc(var(--cw)*1.25);height:calc(var(--cw)*1.25);align-self:flex-start;
+  background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:36px 36px}
+.card-cta h3{font-size:clamp(24px,2.3vw,34px);font-weight:700;line-height:1.12;margin:0;letter-spacing:-.02em}
+.ruler{position:relative;height:16px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 100%/12px 6px repeat-x,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 100%/60px 12px repeat-x}
+.ruler i{position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--blue);transform-origin:left center;transform:scaleX(var(--p,0))}
+.products.is-pin .p-stage{position:sticky;top:calc(var(--header-h) + env(safe-area-inset-top,0px));height:calc(100vh - var(--header-h));height:calc(100svh - var(--header-h));justify-content:center;overflow:hidden}
+.products.is-pin .p-viewport{overflow:hidden}
+.products.is-pin .p-track{will-change:transform}
+.products.is-pin .card figure,.products.is-pin .card-cta{height:min(calc(var(--cw)*1.25),calc(100vh - var(--header-h) - 372px));min-height:0}
+
+/* Biyoklimatik: lamel kesiti */
+.louvre{padding-block:clamp(84px,12vw,168px)}
+.louvre-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.louvre-copy > p{color:var(--muted);margin-top:20px;max-width:30em}
+.states{list-style:none;padding:0;margin-top:34px}
+.states li{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:16px;padding:15px 0;border-top:1px solid var(--line);color:var(--muted);font-size:16px;transition:border-color .35s,color .35s}
+.states li:last-child{border-bottom:1px solid var(--line)}
+.states b{font-family:var(--display);font-weight:600;color:var(--ink);transition:color .35s}
+.states li.on{border-top-color:var(--blue);color:var(--ink)}
+.states li.on b{color:var(--blue)}
+.louvre-fig{background:var(--mist);padding:clamp(16px,3vw,40px) clamp(16px,3vw,40px) clamp(18px,2.4vw,30px)}
+.louvre-fig svg{display:block;width:100%;height:auto}
+.louvre-fig .blade{transition:transform .08s linear}
+.dial{display:flex;align-items:center;gap:16px;margin-top:14px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink)}
+.dial .ruler{flex:1;border-bottom-color:var(--pale);background:linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/12px 6px repeat-x,linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/60px 12px repeat-x}
+@media (max-width:860px){.louvre-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Neden alüminyum */
+.why{padding-block:0 clamp(84px,12vw,168px)}
+.why-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,7vw,120px);align-items:center}
+.why-fig{aspect-ratio:4/5;overflow:hidden;background:var(--blue);max-width:460px;width:100%}
+.why-fig img{width:100%;height:118%;object-fit:cover;display:block;will-change:transform}
+.why-list{margin-top:clamp(28px,4vw,48px)}
+.why-list > div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:8px 32px;padding:20px 0;border-top:1px solid var(--line)}
+.why-list > div:last-child{border-bottom:1px solid var(--line)}
+.why-list dt{font-family:var(--display);font-weight:600;font-size:19px}
+.why-list dd{color:var(--muted);font-size:16px}
+@media (max-width:860px){.why-grid{grid-template-columns:minmax(0,1fr)}.why-fig{max-width:none;aspect-ratio:4/3}}
+@media (max-width:560px){.why-list > div{grid-template-columns:minmax(0,1fr)}}
+
+/* Süreç */
+.process{padding-block:0 clamp(84px,12vw,168px);scroll-margin-top:calc(var(--header-h) + 24px)}
+.process-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 48px}
+.process-head p{color:var(--muted);max-width:28em;font-size:16px}
+.band{margin-top:clamp(28px,4vw,56px);aspect-ratio:16/8;max-height:620px;width:100%;overflow:hidden;background:var(--mist)}
+.band img{width:100%;height:122%;object-fit:cover;display:block;will-change:transform}
+.steps-wrap{position:relative;margin-top:clamp(40px,5vw,72px)}
+.steps-wrap::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:var(--line)}
+.steps-line{position:absolute;left:0;right:0;top:4px;height:3px;background:var(--blue);transform-origin:left center;transform:scaleX(var(--p,1))}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,44px);position:relative}
+.steps li{padding-top:34px;position:relative}
+.steps li::before{content:"";position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:var(--blue);border:2px solid var(--blue);transition:background-color .35s,border-color .35s}
+.js-steps .steps li:not(.on)::before{background:var(--paper);border-color:var(--pale)}
+.steps p{color:var(--muted);font-size:16px;margin-top:8px}
+@media (max-width:820px){
+  .steps{grid-template-columns:minmax(0,1fr);gap:30px}
+  .steps-wrap::before{left:5px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .steps-line{left:4px;right:auto;top:0;bottom:0;width:3px;height:auto;transform-origin:center top;transform:scaleY(var(--p,1))}
+  .steps li{padding:0 0 0 34px}
+  .steps li::before{top:6px}
+  .band{aspect-ratio:4/3}
+}
+
+/* E-Katalog */
+.catalog{background:var(--mist)}
+.catalog .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 48px;padding-block:clamp(48px,7vw,92px)}
+.catalog p{color:var(--muted);margin-top:10px;max-width:30em}
+
+/* İletişim */
+.contact{background-color:var(--blue);color:#FFFFFF;scroll-margin-top:var(--header-h);
+  background-image:linear-gradient(rgba(255,255,255,.13) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.13) 1.5px,transparent 1.5px),linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:180px 180px,180px 180px,36px 36px,36px 36px}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(36px,6vw,96px);align-items:start;padding-block:clamp(72px,10vw,140px) clamp(56px,7vw,96px)}
+.contact h2{font-weight:800;font-size:clamp(40px,6.4vw,92px);line-height:1;letter-spacing:-.035em}
+.contact h2 span{display:block}
+.contact-lead{margin-top:22px;max-width:26em;color:#DCE7F7}
+.tels{display:grid;gap:6px;margin-top:clamp(28px,4vw,44px)}
+.tels a{font-family:var(--display);font-weight:700;text-decoration:none;letter-spacing:-.01em;width:max-content;max-width:100%}
+.tel-1{font-size:clamp(30px,4vw,52px);line-height:1.1}
+.tel-2{font-size:clamp(20px,2.2vw,26px);color:#DCE7F7}
+.tels a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.where{margin-top:clamp(26px,3.4vw,40px);display:grid;gap:14px;font-size:16px}
+.where address{font-style:normal;color:#DCE7F7}
+.links{display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--display);font-weight:600;font-size:15px}
+.links a{text-underline-offset:5px;text-decoration-thickness:1.5px}
+.quote{background:var(--paper);color:var(--ink);padding:clamp(22px,3vw,40px);display:grid;gap:18px}
+.quote h3{font-size:24px;font-weight:700;letter-spacing:-.015em}
+.field{display:grid;gap:6px}
+.field label{font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:0;border-bottom:1.5px solid var(--line);border-radius:0;padding:10px 0;width:100%;min-width:0;transition:border-color .25s}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-bottom-color:var(--blue)}
+.quote .btn{justify-content:center;margin-top:6px}
+.quote small{color:var(--muted);font-size:13.5px;line-height:1.5}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;padding-block:28px 34px;border-top:1px solid rgba(255,255,255,.28);font-size:14px;color:#DCE7F7}
+.foot img{height:44px;width:auto;display:block}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--display);font-weight:500}
+.foot nav a{text-decoration:none}
+.foot nav a:hover{text-decoration:underline;text-underline-offset:5px}
+@media (max-width:860px){.contact-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Kaydırınca beliren öğeler */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .hint i::after{animation:none}
+  .card img,.btn svg{transition:none}
+}
+</style>
+</head>
+<body>
+<header class="hdr" id="top">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top" aria-label="Aluser, sayfa başı"><img src="img/aluser-logo.png" alt="aluser" width="520" height="135"></a>
+    <nav class="nav" aria-label="Ana menü">
+      <a href="#urunler">Ürünler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#surec">Süreç</a>
+      <a href="https://online.fliphtml5.com/ucnob/pqph/#p=1" target="_blank" rel="noopener">E-Katalog</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <a class="call" href="tel:+905391084545" aria-label="Aluser'i arayın: 0539 108 45 45"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1554B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i><span>0539 108 45 45</span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menü"><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobil menü" hidden>
+    <div class="wrap">
+      <a href="#urunler">Ürünler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#surec">Süreç</a>
+      <a href="https://online.fliphtml5.com/ucnob/pqph/#p=1" target="_blank" rel="noopener">E-Katalog</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-stage">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1><span>Hayal et.</span><span class="ol">Yaşa.</span></h1>
+        <p class="lead">1994'ten bu yana Kıbrıs'ta alüminyum pencere, kapı, pergola ve cephe sistemleri üretiyor, yaşam alanlarına uyguluyoruz.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#iletisim">Teklif alın <svg width="18" height="12" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h23M18 1l6 6-6 6"></path></svg></a>
+          <a class="btn btn-line" href="#urunler">Ürünleri inceleyin</a>
+        </div>
+      </div>
+      <div class="hero-slot">
+        <div class="hero-media"><img src="img/hero.webp" srcset="img/hero-1280.webp 1280w, img/hero.webp 2560w" sizes="100vw" width="2560" height="1429" alt="Antrasit alüminyum sürme kapıları denize açılan ferah bir salon" fetchpriority="high"></div>
+        <div class="hero-frame" aria-hidden="true"><i class="mullion"></i></div>
+      </div>
+    </div>
+    <div class="hero-statement"><div class="wrap"><p><span>Her ölçekte proje,</span><span class="ol-w">her ölçekte stok.</span></p></div></div>
+    <div class="wrap hint" aria-hidden="true"><i></i>Kaydırın, pencere açılsın</div>
+  </div>
+</section>
+
+<section class="about" id="hakkimizda">
+  <div class="wrap">
+    <h2 class="sr">Hakkımızda</h2>
+    <p class="statement" id="statement">Aluser, 1994'ten bu yana Kıbrıs'ta alüminyum pencere, kapı, pergola ve cephe sistemleri üretiyor. Her projeyi kullanım amacına, mimarisine ve teknik gereksinimlerine göre ele alıyor; keşiften montaja, montajdan satış sonrasına aynı ekiple yanınızda oluyoruz.</p>
+    <div class="facts">
+      <div class="rv"><h3>Kendi üretimimiz</h3><p>Alüminyum profiller Lefkoşa Alayköy'deki atölyemizde, projenizin ölçülerine göre hazırlanır.</p></div>
+      <div class="rv" style="--d:.1s"><h3>Güçlü stok</h3><p>Geniş profil stokumuzla her ölçekte projeye hazırız.</p></div>
+      <div class="rv" style="--d:.2s"><h3>Anahtar teslim uygulama</h3><p>Keşif, üretim ve montaj tek elden yürür; satış sonrasında da desteğimiz sürer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="urunler">
+  <div class="p-stage">
+    <div class="wrap p-head">
+      <h2>Ürünler</h2>
+      <p>Pencereden cepheye, pergoladan kış bahçesine. Hepsi alüminyum, hepsi projenize özel ölçüde.</p>
+    </div>
+    <div class="p-viewport" id="p-viewport">
+      <ul class="p-track" id="p-track">
+        <li class="card"><figure><img src="img/pencere.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Deniz manzaralı salonda antrasit alüminyum pencere"></figure><h3>Alüminyum pencere</h3><p>İnce profiller, geniş cam yüzeyler ve ısı yalıtımıyla aydınlık, konforlu mekânlar.</p><p class="types">Pencere sistemleri · Alüminyum doğrama</p></li>
+        <li class="card"><figure><img src="img/kapi.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Taş kaplamalı girişte antrasit alüminyum kapı"></figure><h3>Alüminyum kapı</h3><p>Giriş kapılarından slimline kapılara; sağlam, zarif ve uzun ömürlü.</p><p class="types">Giriş kapısı · Slimline kapı</p></li>
+        <li class="card"><figure><img src="img/pergola.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Terasta lamelleri açık alüminyum biyoklimatik pergola"></figure><h3>Alüminyum pergola</h3><p>Sabit gölgeden açısı ayarlanan lamellere. Otomatik ya da manuel kontrol.</p><p class="types">Pergola · Biyoklimatik pergola · Tente</p></li>
+        <li class="card"><figure><img src="img/kisbahcesi.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Alüminyum çerçeveli cam kış bahçesi"></figure><h3>Alüminyum kış bahçesi</h3><p>Bahçenin keyfi dört mevsim; yağmurda da, kışın da.</p><p class="types">Kış bahçesi · Otomatik tavan sistemleri</p></li>
+        <li class="card"><figure><img src="img/cephe.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Alüminyum cephe giydirme ve güneş kırıcılı modern bina"></figure><h3>Alüminyum cephe giydirme</h3><p>Binaya yeni bir yüz kazandırır, dış etkenlere karşı korur.</p><p class="types">Konut · Ticari · Endüstriyel yapılar</p></li>
+        <li class="card"><figure><img src="img/kupeste.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Balkonda alüminyum profilli cam küpeşte"></figure><h3>Alüminyum cam küpeşte</h3><p>Temperli cam ve alüminyum profille güvenli, manzaraya açık korkuluk.</p><p class="types">Balkon · Merdiven · Teras · Havuz kenarı</p></li>
+        <li class="card"><figure><img src="img/sineklik.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Alüminyum sürme kapıda pileli sineklik"></figure><h3>Alüminyum sineklik</h3><p>Kapı ve pencerenize uyumlu, kolay açılıp kapanan sineklikler.</p><p class="types">Menteşeli · Sürme · Pileli</p></li>
+        <li class="card"><figure><img src="img/ofis.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Alüminyum çerçeveli cam ofis bölmeleri"></figure><h3>Alüminyum ofis bölmeleri</h3><p>Cam ve alüminyumla aydınlık, esnek çalışma alanları.</p><p class="types">Toplantı odası · Yönetici odası · Açık ofis</p></li>
+        <li class="card card-cta"><h3>Projenize uygun sistemi birlikte seçelim.</h3><a class="btn btn-white" href="#iletisim">Teklif alın <svg width="18" height="12" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h23M18 1l6 6-6 6"></path></svg></a></li>
+      </ul>
+    </div>
+    <div class="wrap" style="width:100%"><div class="ruler" id="p-ruler" aria-hidden="true"><i></i></div></div>
+  </div>
+</section>
+
+<section class="louvre" id="biyoklimatik">
+  <div class="wrap louvre-grid">
+    <div class="louvre-copy">
+      <h2 class="rv">Güneşi siz yönetin.</h2>
+      <p class="rv" style="--d:.08s">Alüminyum biyoklimatik pergolada lamellerin açısı sizin elinizde. Sayfayı kaydırın, lameller açılsın.</p>
+      <ul class="states" id="states">
+        <li class="on"><b>Kapalı</b><span>Lameller birleşir, yağmurda korur.</span></li>
+        <li><b>Açılı</b><span>Gün ışığı süzülür, gölge sizde kalır.</span></li>
+        <li><b>Açık</b><span>Hava ve gökyüzü içeride.</span></li>
+      </ul>
+    </div>
+    <figure class="louvre-fig" id="louvre-fig">
+      <svg viewBox="0 0 560 392" role="img" aria-label="Biyoklimatik pergola kesiti: sayfa kaydırıldıkça lameller kapalı konumdan açık konuma döner ve güneş ışınları içeri girer">
+        <defs>
+          <clipPath id="ray-clip"><rect id="ray-rect" x="0" y="122" width="560" height="0"></rect></clipPath>
+          <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#B9C7E0" stroke-width="1.5"></line></pattern>
+        </defs>
+        <rect x="30" y="351" width="500" height="16" fill="url(#hatch)"></rect>
+        <g fill="none" stroke="#1554B8" stroke-width="2" stroke-linecap="round">
+          <circle cx="42" cy="38" r="14"></circle>
+          <path d="M42 12v6M42 58v6M16 38h6M62 38h6M23.600 19.600l4.200 4.200M56.200 52.200l4.200 4.200M60.400 19.600l-4.200 4.200M27.800 52.200l-4.200 4.200"></path>
+        </g>
+        <g stroke="#5488C9" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round">
+          <path d="M80 50.700l40 69.300M120 50.700l40 69.300M160 50.700l40 69.300M200 50.700l40 69.300M240 50.700l40 69.300M280 50.700l40 69.300M320 50.700l40 69.300M360 50.700l40 69.300M400 50.700l40 69.300"></path>
+        </g>
+        <g clip-path="url(#ray-clip)">
+          <g stroke="#5488C9" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round">
+            <path d="M120 120l132.800 230M160 120l132.800 230M200 120l132.800 230M240 120l132.800 230M280 120l132.800 230M320 120l132.800 230M360 120l132.800 230M400 120l122 211.300M440 120l82 142"></path>
+          </g>
+        </g>
+        <g fill="#FFFFFF" stroke="#0B2A5B" stroke-width="2" stroke-linejoin="round">
+          <rect x="196" y="292" width="20" height="50" rx="5"></rect>
+          <rect x="196" y="318" width="150" height="24" rx="5"></rect>
+          <path d="M206 342v8M336 342v8" fill="none" stroke-linecap="round"></path>
+          <rect x="372" y="326" width="50" height="7" rx="2"></rect>
+          <path d="M380 333v17M414 333v17" fill="none" stroke-linecap="round"></path>
+        </g>
+        <line x1="30" y1="350" x2="530" y2="350" stroke="#0B2A5B" stroke-width="2" stroke-linecap="round"></line>
+        <g fill="#383E42">
+          <rect x="62" y="92" width="436" height="12"></rect>
+          <rect x="62" y="92" width="12" height="258"></rect>
+          <rect x="486" y="92" width="12" height="258"></rect>
+        </g>
+        <g id="blades" fill="#383E42">
+          <rect class="blade" x="81" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="121" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="161" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="201" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="241" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="281" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="321" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="361" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="401" y="116.500" width="38" height="7" rx="3.5"></rect>
+          <rect class="blade" x="441" y="116.500" width="38" height="7" rx="3.5"></rect>
+        </g>
+      </svg>
+      <div class="dial" aria-hidden="true"><span>Kapalı</span><div class="ruler" id="dial-ruler"><i></i></div><span>Açık</span></div>
+    </figure>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap why-grid">
+    <figure class="why-fig"><img src="img/profil.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Isı yalıtımlı alüminyum pencere profilinin kesiti" data-parallax="-.16"></figure>
+    <div>
+      <h2 class="rv">Neden alüminyum?</h2>
+      <dl class="why-list">
+        <div class="rv"><dt>Dayanıklı</dt><dd>Paslanmaz yapısıyla zorlu hava koşullarında yıllarca formunu korur.</dd></div>
+        <div class="rv" style="--d:.06s"><dt>İnce profil, geniş cam</dt><dd>Daha geniş cam yüzey, daha fazla gün ışığı.</dd></div>
+        <div class="rv" style="--d:.12s"><dt>Enerji verimli</dt><dd>Isı yalıtımlı sistemlerle kışın sıcak, yazın serin mekânlar.</dd></div>
+        <div class="rv" style="--d:.18s"><dt>Geri dönüştürülebilir</dt><dd>Çevreye duyarlı projeler için doğru malzeme.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="surec">
+  <div class="wrap">
+    <div class="process-head">
+      <h2 class="rv">Keşiften montaja tek ekip.</h2>
+      <p class="rv" style="--d:.08s">Ölçüyü alan, profili hazırlayan ve montajı yapan ekip aynı çatı altında çalışır.</p>
+    </div>
+    <figure class="band"><img src="img/atolye.webp" width="1536" height="864" loading="lazy" decoding="async" alt="Aluser atölyesinde alüminyum profil hazırlayan ekip" data-parallax="-.18"></figure>
+    <div class="steps-wrap" id="steps-wrap">
+      <div class="steps-line" aria-hidden="true"></div>
+      <ol class="steps">
+        <li><h3>Keşif ve ölçü</h3><p>Mekânı yerinde görür, ölçüleri alırız.</p></li>
+        <li><h3>Projeye özel çözüm</h3><p>Kullanım amacına ve mimariye uygun sistemi birlikte seçeriz.</p></li>
+        <li><h3>Üretim</h3><p>Profilleri atölyemizde, ölçünüze göre hazırlarız.</p></li>
+        <li><h3>Montaj ve destek</h3><p>Uzman ekibimiz montajı tamamlar; sonrasında da yanınızdadır.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="catalog">
+  <div class="wrap">
+    <div class="rv"><h2>E-Katalog</h2><p>Sistemlerin tamamını kataloğumuzda inceleyin.</p></div>
+    <a class="btn btn-primary rv" style="--d:.1s" href="https://online.fliphtml5.com/ucnob/pqph/#p=1" target="_blank" rel="noopener">Kataloğu açın <svg width="18" height="12" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h23M18 1l6 6-6 6"></path></svg></a>
+  </div>
+</section>
+</main>
+
+<section class="contact" id="iletisim">
+  <div class="wrap contact-grid">
+    <div>
+      <h2><span>Projenizi</span><span class="ol-w">konuşalım.</span></h2>
+      <p class="contact-lead">Keşif ve teklif için arayın ya da WhatsApp'tan yazın.</p>
+      <div class="tels">
+        <a class="tel-1" href="tel:+905391084545">0539 108 45 45</a>
+        <a class="tel-2" href="tel:+903924446262">0392 444 62 62</a>
+      </div>
+      <div class="where">
+        <address>Alayköy Sanayi Bölgesi<br>3. Cadde 7. Sokak No:&nbsp;88<br>Lefkoşa, KKTC</address>
+        <div class="links">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Aluser+Trading+Alayk%C3%B6y+Lefko%C5%9Fa" target="_blank" rel="noopener">Haritada açın</a>
+          <a href="https://www.instagram.com/aluseraluminyum/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/alusertrading" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <form class="quote" id="quote" novalidate>
+      <h3>Teklif isteyin</h3>
+      <div class="field"><label for="q-ad">Adınız</label><input id="q-ad" name="ad" type="text" autocomplete="name"></div>
+      <div class="field"><label for="q-urun">İlgilendiğiniz ürün</label>
+        <select id="q-urun" name="urun">
+          <option value="">Seçin</option>
+          <option>Alüminyum pencere</option>
+          <option>Alüminyum kapı</option>
+          <option>Alüminyum pergola / biyoklimatik pergola</option>
+          <option>Alüminyum kış bahçesi</option>
+          <option>Alüminyum cephe giydirme</option>
+          <option>Alüminyum cam küpeşte</option>
+          <option>Alüminyum sineklik</option>
+          <option>Alüminyum ofis bölmeleri</option>
+        </select>
+      </div>
+      <div class="field"><label for="q-not">Projeniz</label><textarea id="q-not" name="not" rows="3" placeholder="Konum, ölçüler, aklınızdaki sistem…"></textarea></div>
+      <a class="btn btn-primary" id="wa-send" href="https://wa.me/905391084545?text=Merhaba%2C%20web%20sitenizden%20yaz%C4%B1yorum." target="_blank" rel="noopener">WhatsApp'tan gönderin <svg width="18" height="12" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h23M18 1l6 6-6 6"></path></svg></a>
+      <small>Yazdıklarınız WhatsApp'ta hazır bir mesaj olarak açılır; göndermek için onaylamanız yeterlidir.</small>
+    </form>
+  </div>
+  <div class="wrap">
+    <footer class="foot">
+      <img src="img/aluser-logo-beyaz.png" width="640" height="219" alt="aluser, Alüminyum ve Gölgelendirme Sistemleri" loading="lazy">
+      <nav aria-label="Alt menü">
+        <a href="#urunler">Ürünler</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#surec">Süreç</a>
+        <a href="https://online.fliphtml5.com/ucnob/pqph/#p=1" target="_blank" rel="noopener">E-Katalog</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+      <span>© 2026 Aluser Trading Ltd.</span>
+    </footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var clamp=function(x,a,b){a=a===undefined?0:a;b=b===undefined?1:b;return Math.min(b,Math.max(a,x))};
+  var ease=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+  var hdr=$('.hdr'), scenes=[], measures=[];
+
+  /* Menü */
+  var mb=$('#menu-btn'), mnav=$('#mnav');
+  function closeMenu(){mnav.hidden=true;mb.setAttribute('aria-expanded','false')}
+  mb.addEventListener('click',function(){var open=mnav.hidden;mnav.hidden=!open;mb.setAttribute('aria-expanded',String(open))});
+
+  /* Sayfa içi bağlantılar */
+  $$('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').slice(1), t=id==='top'?document.body:document.getElementById(id);
+      if(!t) return; e.preventDefault(); closeMenu();
+      if(id==='top') window.scrollTo({top:0,behavior:RM?'auto':'smooth'});
+      else t.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
+    });
+  });
+
+  /* Kaydırınca beliren öğeler */
+  var rv=$$('.rv');
+  if(RM||!('IntersectionObserver' in window)){rv.forEach(function(el){el.classList.add('in')})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rv.forEach(function(el){io.observe(el)});
+  }
+
+  /* Giriş: pencere açılır */
+  (function(){
+    var hero=$('#hero'); if(!hero||RM) return;
+    var stage=$('.hero-stage',hero), slot=$('.hero-slot',hero), media=$('.hero-media',hero), frame=$('.hero-frame',hero), img=$('img',media),
+        copy=$('.hero-copy',hero), st=$('.hero-statement',hero), mull=$('.mullion',frame), hint=$('.hint',hero), R=null, stick=0,
+        mq=window.matchMedia('(min-height: 560px)'), on=false;
+    function enable(){hero.classList.add('is-pin'); stage.appendChild(media); stage.appendChild(frame); on=true}
+    function disable(){hero.classList.remove('is-pin'); slot.appendChild(media); slot.appendChild(frame); [media,img,frame,mull,copy,st,hint].forEach(function(n){if(n) n.removeAttribute('style')}); on=false}
+    function measure(){
+      if(mq.matches!==on){ if(mq.matches) enable(); else disable(); }
+      if(!on) return;
+      var s=stage.getBoundingClientRect(), r=slot.getBoundingClientRect();
+      R={l:r.left-s.left,t:r.top-s.top,w:r.width,h:r.height,W:s.width,H:s.height};
+      R.r=R.W-R.l-R.w; R.b=R.H-R.t-R.h; R.dx=R.l+R.w/2-R.W/2; R.dy=R.t+R.h/2-R.H/2;
+      stick=parseFloat(getComputedStyle(stage).top)||0;
+    }
+    function update(){
+      if(!on||!R) return;
+      var hr=hero.getBoundingClientRect(), total=Math.max(1,hr.height-R.H), p=clamp((stick-hr.top)/total), e=ease(clamp(p/.8)), k=1-e;
+      media.style.clipPath='inset('+(R.t*k)+'px '+(R.r*k)+'px '+(R.b*k)+'px '+(R.l*k)+'px)';
+      img.style.transform='translate3d('+(R.dx*k)+'px,'+(R.dy*k)+'px,0) scale('+(1+.06*k)+')';
+      frame.style.top=(R.t*k)+'px'; frame.style.right=(R.r*k)+'px'; frame.style.bottom=(R.b*k)+'px'; frame.style.left=(R.l*k)+'px';
+      frame.style.opacity=1-clamp((e-.5)/.38);
+      mull.style.left=(50+50*clamp(e/.72))+'%';
+      var c=clamp(p/.2); copy.style.opacity=1-c; copy.style.transform='translate3d(0,'+(-36*c)+'px,0)'; copy.style.visibility=c>=1?'hidden':'';
+      if(hint) hint.style.opacity=1-clamp(p/.08);
+      var o=clamp((p-.72)/.16); st.style.opacity=o; st.style.transform='translate3d(0,'+((1-o)*34)+'px,0)'; media.style.setProperty('--scrim',o);
+    }
+    measures.push(measure); scenes.push(update);
+  })();
+
+  /* Hakkımızda: metin kaydırdıkça dolar */
+  (function(){
+    var el=$('#statement'); if(!el||RM) return;
+    var words=el.textContent.trim().split(/\s+/); el.textContent='';
+    var spans=words.map(function(w,i){var s=document.createElement('span');s.className='w';s.textContent=w;el.appendChild(s);if(i<words.length-1)el.appendChild(document.createTextNode(' '));return s});
+    var last=-1;
+    scenes.push(function(){
+      var r=el.getBoundingClientRect(), vh=window.innerHeight, p=clamp((vh*.86-r.top)/(r.height+vh*.42)), n=Math.round(p*spans.length);
+      if(n===last) return; last=n; for(var i=0;i<spans.length;i++) spans[i].classList.toggle('on',i<n);
+    });
+  })();
+
+  /* Ürünler: dikey kaydırma yatay raya döner */
+  (function(){
+    var sec=$('#urunler'); if(!sec) return;
+    var stage=$('.p-stage',sec), vp=$('#p-viewport'), track=$('#p-track'), ruler=$('#p-ruler');
+    var mq=window.matchMedia('(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)'), pin=false, dist=0, stick=0;
+    var head=$('.p-head',sec), h2=$('h2',head);
+    function measure(){
+      /* Ray, başlıkla aynı hizadan başlar (kaydırma çubuğu genişliğinden bağımsız) */
+      var hr=head.getBoundingClientRect(), pr=parseFloat(getComputedStyle(head).paddingRight)||0;
+      sec.style.setProperty('--edge-l',h2.getBoundingClientRect().left+'px');
+      sec.style.setProperty('--edge-r',Math.max(0,document.documentElement.clientWidth-hr.right+pr)+'px');
+      pin=mq.matches; sec.classList.toggle('is-pin',pin);
+      if(pin){ vp.scrollLeft=0; dist=Math.max(0,track.scrollWidth-vp.clientWidth); sec.style.height=(stage.offsetHeight+dist)+'px'; stick=parseFloat(getComputedStyle(stage).top)||0; }
+      else{ sec.style.height=''; track.style.transform=''; }
+    }
+    function update(){
+      if(!pin) return;
+      var r=sec.getBoundingClientRect(), total=Math.max(1,r.height-stage.offsetHeight), p=clamp((stick-r.top)/total);
+      track.style.transform='translate3d('+(-p*dist)+'px,0,0)'; ruler.style.setProperty('--p',p.toFixed(4));
+    }
+    vp.addEventListener('scroll',function(){ if(pin) return; var m=vp.scrollWidth-vp.clientWidth; ruler.style.setProperty('--p',m>0?(vp.scrollLeft/m).toFixed(4):0); },{passive:true});
+    measures.push(measure); scenes.push(update);
+  })();
+
+  /* Biyoklimatik: lameller döner */
+  (function(){
+    var fig=$('#louvre-fig'); if(!fig) return;
+    var blades=$$('.blade',fig), rect=$('#ray-rect'), dial=$('#dial-ruler'), states=$$('#states li'), last=-1;
+    function set(p){
+      var a=(60*p).toFixed(2);
+      blades.forEach(function(b){var cx=parseFloat(b.getAttribute('x'))+19; b.setAttribute('transform','rotate('+a+' '+cx+' 120)')});
+      rect.setAttribute('height',(232*clamp((p-.12)/.88)).toFixed(1)); dial.style.setProperty('--p',p.toFixed(4));
+      var s=p<.18?0:(p<.82?1:2); if(s!==last){last=s; states.forEach(function(li,i){li.classList.toggle('on',i===s)})}
+    }
+    if(RM){set(1);return}
+    scenes.push(function(){var r=fig.getBoundingClientRect(), vh=window.innerHeight; set(ease(clamp((vh*.88-r.top)/(vh*.6+r.height*.35))))});
+  })();
+
+  /* Süreç: çizgi kaydırdıkça ilerler */
+  (function(){
+    var w=$('#steps-wrap'); if(!w||RM) return;
+    var items=$$('.steps li',w); w.classList.add('js-steps');
+    scenes.push(function(){
+      var r=w.getBoundingClientRect(), vh=window.innerHeight, p=clamp((vh*.82-r.top)/(r.height+vh*.22));
+      w.style.setProperty('--p',p.toFixed(4)); items.forEach(function(li,i){li.classList.toggle('on',p>=i/items.length+.02)});
+    });
+  })();
+
+  /* Görsellerde hafif derinlik */
+  (function(){
+    if(RM) return; var els=$$('[data-parallax]');
+    scenes.push(function(){
+      var vh=window.innerHeight;
+      els.forEach(function(el){var b=el.parentNode.getBoundingClientRect(); if(b.bottom<-100||b.top>vh+100) return; var f=parseFloat(el.getAttribute('data-parallax')), c=clamp((b.top+b.height/2)/vh,-.2,1.2); el.style.transform='translate3d(0,'+((c-.5)*f*b.height-(el.offsetHeight-b.height)/2)+'px,0)'});
+    });
+  })();
+
+  /* Teklif formu → WhatsApp mesajı */
+  (function(){
+    var f=$('#quote'); if(!f) return; var a=$('#wa-send'), ad=$('#q-ad'), urun=$('#q-urun'), not=$('#q-not');
+    function build(){
+      var t='Merhaba, web sitenizden yazıyorum.'; var n=ad.value.trim(), u=urun.value, m=not.value.trim();
+      if(n) t+='\nAdım: '+n; if(u) t+='\nİlgilendiğim ürün: '+u; if(m) t+='\n'+m;
+      a.href='https://wa.me/905391084545?text='+encodeURIComponent(t);
+    }
+    f.addEventListener('input',build); f.addEventListener('change',build);
+    f.addEventListener('submit',function(e){e.preventDefault();build();a.focus()});
+  })();
+
+  /* Kaydırma döngüsü */
+  var ticking=false;
+  function frame(){ticking=false; hdr.classList.toggle('scrolled',window.scrollY>8); for(var i=0;i<scenes.length;i++) scenes[i]()}
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  function relayout(){for(var i=0;i<measures.length;i++) measures[i](); req()}
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',relayout);
+  window.addEventListener('load',relayout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(relayout);
+  relayout();
+})();
+</script>
+</body>
+</html>
