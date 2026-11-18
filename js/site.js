@@ -33,10 +33,10 @@
   (function(){
     var hero=$('#hero'); if(!hero||RM) return;
     var stage=$('.hero-stage',hero), slot=$('.hero-slot',hero), media=$('.hero-media',hero), frame=$('.hero-frame',hero), img=$('img',media),
-        copy=$('.hero-copy',hero), st=$('.hero-statement',hero), mull=$('.mullion',frame), hint=$('.hint',hero), R=null, stick=0,
+        copy=$('.hero-copy',hero), st=$('.hero-statement',hero), hint=$('.hint',hero), R=null, stick=0,
         mq=window.matchMedia('(min-height: 560px)'), on=false;
     function enable(){hero.classList.add('is-pin'); stage.appendChild(media); stage.appendChild(frame); on=true}
-    function disable(){hero.classList.remove('is-pin'); slot.appendChild(media); slot.appendChild(frame); [media,img,frame,mull,copy,st,hint].forEach(function(n){if(n) n.removeAttribute('style')}); on=false}
+    function disable(){hero.classList.remove('is-pin'); slot.appendChild(media); slot.appendChild(frame); [media,img,frame,copy,st,hint].forEach(function(n){if(n) n.removeAttribute('style')}); on=false}
     function measure(){
       if(mq.matches!==on){ if(mq.matches) enable(); else disable(); }
       if(!on) return;
@@ -52,7 +52,7 @@
       img.style.transform='translate3d('+(R.dx*k)+'px,'+(R.dy*k)+'px,0) scale('+(1+.06*k)+')';
       frame.style.top=(R.t*k)+'px'; frame.style.right=(R.r*k)+'px'; frame.style.bottom=(R.b*k)+'px'; frame.style.left=(R.l*k)+'px';
       frame.style.opacity=1-clamp((e-.5)/.38);
-      mull.style.left=(50+50*clamp(e/.72))+'%';
+      frame.style.setProperty('--hr',clamp(p/.1).toFixed(3)); frame.style.setProperty('--sx',ease(clamp((p-.08)/.5)).toFixed(4));
       var c=clamp(p/.2); copy.style.opacity=1-c; copy.style.transform='translate3d(0,'+(-36*c)+'px,0)'; copy.style.visibility=c>=1?'hidden':'';
       if(hint) hint.style.opacity=1-clamp(p/.08);
       var o=clamp((p-.72)/.16); st.style.opacity=o; st.style.transform='translate3d(0,'+((1-o)*34)+'px,0)'; media.style.setProperty('--scrim',o);
