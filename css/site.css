@@ -348,7 +348,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 @media (max-width:760px){.tl li{grid-template-columns:minmax(0,1fr)}}
 
 /* Mavi bant: çağrı ve alt bilgi */
-.cta-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,6vw,96px);align-items:end;padding-block:clamp(64px,9vw,120px) clamp(48px,6vw,80px)}
+.band-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,6vw,96px);align-items:end;padding-block:clamp(64px,9vw,120px) clamp(48px,6vw,80px)}
 .cta-side{display:grid;gap:18px;justify-items:start}
 .cta-side .contact-lead{margin-top:0}
 .cta-side .tel-1{font-family:var(--display);font-weight:700;letter-spacing:-.01em;text-decoration:none}
@@ -363,7 +363,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 .foot a{text-decoration:none}
 .foot a:hover{text-decoration:underline;text-underline-offset:4px}
 .foot-end{grid-column:1 / -1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);font-size:13.5px}
-@media (max-width:860px){.cta-row{grid-template-columns:minmax(0,1fr);align-items:start}.foot{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:860px){.band-row{grid-template-columns:minmax(0,1fr);align-items:start}.foot{grid-template-columns:minmax(0,1fr)}}
 
 /* Kaydırınca beliren öğeler */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
