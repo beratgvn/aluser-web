@@ -32,27 +32,85 @@
   /* Giriş: pencere açılır */
   (function(){
     var hero=$('#hero'); if(!hero||RM) return;
-    var stage=$('.hero-stage',hero), slot=$('.hero-slot',hero), media=$('.hero-media',hero), frame=$('.hero-frame',hero), img=$('img',media),
+    var stage=$('.hero-stage',hero), slot=$('.hero-slot',hero), media=$('.hero-media',hero), frame=$('.hero-frame',hero), img=$('.hero-pic',media),
         copy=$('.hero-copy',hero), st=$('.hero-statement',hero), hint=$('.hint',hero), R=null, stick=0,
         mq=window.matchMedia('(min-height: 560px)'), on=false;
+    /* Kapı kare dizisi: kaydırma ilerledikçe ilgili kare tuvale çizilir.
+       Kareler sıkıştırılmış olarak indirilir; oynatma konumunun çevresindekiler arka planda çözülüp hazır tutulur,
+       böylece çizim anında ana iş parçacığı beklemez. */
+    var cv=$('.hero-seq',media), ctx=cv&&cv.getContext?cv.getContext('2d'):null, S=null, key='', want=0, px=0,
+        SETS={d:{n:140,w:1600,h:900},m:{n:140,w:648,h:1080}}, mqm=window.matchMedia('(max-aspect-ratio: 3/5)'),
+        lite=!!(navigator.connection&&navigator.connection.saveData), viaImg=!(window.createImageBitmap&&window.fetch&&window.Blob);
+    function ready(i){var b=S.bm[i]; return !!b&&b!==1}
+    function warm(c,dir){
+      var s=S, lo=c-(dir<0?10:3), hi=c+(dir<0?3:10), i;
+      for(i in s.bm){ if((i<lo-4||i>hi+4)&&s.bm[i]!==1){ if(s.bm[i].close) s.bm[i].close(); delete s.bm[i] } }
+      for(i=Math.max(1,lo);i<=Math.min(s.n-1,hi);i++) if(s.ok[i]&&!s.bm[i]) (function(i){
+        var v=s.src[i];
+        if(!(v instanceof Blob)){ s.bm[i]=v; return }  /* yedek yol: görsel doğrudan çizilir */
+        s.bm[i]=1;
+        createImageBitmap(v).then(function(bm){ if(S!==s){bm.close(); return} s.bm[i]=bm; paint() },function(){ if(s.bm[i]===1) delete s.bm[i] });
+      })(i);
+    }
+    function paint(){
+      if(!S) return; var n=S.n, x=want*(n-1), j, d, t, dir=x<px?-1:1; px=x;
+      if(x<1){ warm(1,1); if(key!=='p'){key='p'; cv.classList.remove('on')} return }  /* en başta net fotoğraf görünür */
+      t=Math.min(n-1,Math.round(x)); warm(t,dir);
+      for(j=-1,d=0;d<n;d++){ if(t-d>=1&&ready(t-d)){j=t-d;break} if(t+d<n&&ready(t+d)){j=t+d;break} }
+      if(j<0||j===key) return; key=j;
+      ctx.drawImage(S.bm[j],0,0,cv.width,cv.height); cv.classList.add('on');  /* her zaman tek ve net kare */
+    }
+    function loadSeq(){
+      if(!ctx||lite) return; var k=mqm.matches?'m':'d'; if(S&&S.k===k) return;
+      var c=SETS[k], s={k:k,n:c.n,src:[],ok:[],bm:{}}, order=[], seen={}, q=0, live=0, i, stp;
+      function add(i){ if(i>0&&i<c.n&&!seen[i]){seen[i]=1; order.push(i)} }
+      for(i=1;i<=16;i++) add(i);  /* önce açılışın ilk kareleri, sonra kabadan inceye tüm dizi */
+      add(c.n-1); for(stp=32;stp>=1;stp>>=1) for(i=0;i<c.n;i+=stp) add(i);
+      function next(){
+        if(S!==s) return;
+        while(live<6&&q<order.length){(function(ix){
+          var url='img/seq/'+k+'-'+('00'+(ix+1)).slice(-3)+'.webp'; live++;
+          function fin(v){ live--; if(S===s&&v){s.src[ix]=v; s.ok[ix]=1; paint()} next() }
+          function img(){ var im=new Image(); im.onload=function(){ if(im.decode) im.decode().then(function(){fin(im)},function(){fin(im)}); else fin(im) }; im.onerror=function(){fin(null)}; im.src=url }
+          if(viaImg) img(); else fetch(url).then(function(r){ if(!r.ok) throw 0; return r.blob() }).then(fin,function(){ viaImg=true; img() });
+        })(order[q++])}
+      }
+      if(S) for(i in S.bm) if(S.bm[i]!==1&&S.bm[i].close) S.bm[i].close();
+      cv.width=c.w; cv.height=c.h; key=''; cv.classList.remove('on'); S=s; next();
+    }
     function enable(){hero.classList.add('is-pin'); stage.appendChild(media); stage.appendChild(frame); on=true}
-    function disable(){hero.classList.remove('is-pin'); slot.appendChild(media); slot.appendChild(frame); [media,img,frame,copy,st,hint].forEach(function(n){if(n) n.removeAttribute('style')}); on=false}
+    function disable(){hero.classList.remove('is-pin'); slot.appendChild(media); slot.appendChild(frame); [media,img,frame,copy,st,hint].forEach(function(n){if(n) n.removeAttribute('style')}); on=false; pS=-1}
     function measure(){
       if(mq.matches!==on){ if(mq.matches) enable(); else disable(); }
       if(!on) return;
+      loadSeq();
       var s=stage.getBoundingClientRect(), r=slot.getBoundingClientRect();
       R={l:r.left-s.left,t:r.top-s.top,w:r.width,h:r.height,W:s.width,H:s.height};
       R.r=R.W-R.l-R.w; R.b=R.H-R.t-R.h; R.dx=R.l+R.w/2-R.W/2; R.dy=R.t+R.h/2-R.H/2;
       stick=parseFloat(getComputedStyle(stage).top)||0;
     }
+    /* Kaydırma konumu hedeftir; sahne hedefe yumuşakça yaklaşır (tekerlek adımları akıcı görünür) */
+    var pT=0, pS=-1, raf=0, last=0;
     function update(){
       if(!on||!R) return;
-      var hr=hero.getBoundingClientRect(), total=Math.max(1,hr.height-R.H), p=clamp((stick-hr.top)/total), e=ease(clamp(p/.8)), k=1-e;
+      var hr=hero.getBoundingClientRect(), total=Math.max(1,hr.height-R.H); pT=clamp((stick-hr.top)/total);
+      if(pS<0) pS=pT;
+      if(pS===pT) render(pS); else if(!raf){last=0; raf=requestAnimationFrame(tick)}
+    }
+    function tick(now){
+      raf=0; if(!on||!R) return;
+      var dt=last?Math.min(64,now-last):16, d=pT-pS, v=Math.max(Math.abs(d)*(1-Math.exp(-dt/140)),dt*.00009); last=now;
+      if(v>=Math.abs(d)) pS=pT; else pS+=d<0?-v:v;  /* sona doğru sabit küçük hızla tamamlanır, kuyruk uzamaz */
+      render(pS);
+      if(pS!==pT) raf=requestAnimationFrame(tick);
+    }
+    function render(p){
+      var e=ease(clamp(p/.8)), k=1-e;
       media.style.clipPath='inset('+(R.t*k)+'px '+(R.r*k)+'px '+(R.b*k)+'px '+(R.l*k)+'px)';
       img.style.transform='translate3d('+(R.dx*k)+'px,'+(R.dy*k)+'px,0) scale('+(1+.06*k)+')';
       frame.style.top=(R.t*k)+'px'; frame.style.right=(R.r*k)+'px'; frame.style.bottom=(R.b*k)+'px'; frame.style.left=(R.l*k)+'px';
       frame.style.opacity=1-clamp((e-.5)/.38);
-      frame.style.setProperty('--hr',clamp(p/.1).toFixed(3)); frame.style.setProperty('--sx',ease(clamp((p-.08)/.5)).toFixed(4));
+      want=clamp((p-.03)/.7); paint();
       var c=clamp(p/.2); copy.style.opacity=1-c; copy.style.transform='translate3d(0,'+(-36*c)+'px,0)'; copy.style.visibility=c>=1?'hidden':'';
       if(hint) hint.style.opacity=1-clamp(p/.08);
       var o=clamp((p-.72)/.16); st.style.opacity=o; st.style.transform='translate3d(0,'+((1-o)*34)+'px,0)'; media.style.setProperty('--scrim',o);
