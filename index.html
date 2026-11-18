@@ -122,7 +122,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 .mullion::after{content:"";position:absolute;left:16px;top:50%;width:4px;height:46px;margin-top:-23px;border-radius:2px;background:#C9CED6}
 .hero-statement{display:none}
 .hint{display:none}
-.hero.is-pin{height:calc(100vh - var(--header-h) + 115vh);height:calc(100svh - var(--header-h) + 115vh)}
+.hero.is-pin{height:calc(100vh - var(--header-h) + 115vh + var(--intro-d,0px));height:calc(100svh - var(--header-h) + 115vh + var(--intro-d,0px))}
 .hero.is-pin .hero-stage{position:sticky;top:calc(var(--header-h) + env(safe-area-inset-top,0px));height:calc(100vh - var(--header-h));height:calc(100svh - var(--header-h));overflow:hidden}
 .hero.is-pin .hero-grid{height:100%}
 .hero.is-pin .hero-media{z-index:2;will-change:clip-path}
@@ -272,6 +272,52 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 .foot nav a:hover{text-decoration:underline;text-underline-offset:5px}
 @media (max-width:860px){.contact-grid{grid-template-columns:minmax(0,1fr)}}
 
+/* Açılış: logo ve slogan mavi sürme kapıların üzerinde; kaydırınca kapılar açılır */
+.intro{position:fixed;inset:0;z-index:80;display:none;color:#FFFFFF;overflow:hidden}
+.has-intro{--intro-d:85vh}
+@supports (height:1svh){.has-intro{--intro-d:85svh}}
+.has-intro .intro{display:block}
+.intro.done{visibility:hidden;pointer-events:none}
+.intro-probe{position:absolute;left:0;top:0;width:0;height:var(--intro-d,0px);visibility:hidden;pointer-events:none}
+.door{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;background:var(--blue);will-change:transform;box-shadow:0 0 90px rgba(6,24,58,calc(.5*var(--seam,0)))}
+.door-l{left:0;width:calc(50% + 1px)}
+.door-r{right:0}
+.door-in{position:absolute;top:0;bottom:0;width:200%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(20px,4.2vh,44px);padding:24px var(--gr) clamp(76px,13vh,130px) var(--gl);text-align:center;
+  background-image:linear-gradient(rgba(255,255,255,.13) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.13) 1.5px,transparent 1.5px),linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:180px 180px,180px 180px,36px 36px,36px 36px;background-position:50% 50%}
+.door-l .door-in{left:0;width:calc(200% - 2px)}
+.door-r .door-in{right:0}
+.door .edge{position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.6);opacity:var(--seam,0)}
+.door-l .edge{right:0}
+.door-r .edge{left:0}
+.door .edge::after{content:"";position:absolute;top:50%;width:5px;height:76px;margin-top:-38px;border-radius:3px;background:#FFFFFF}
+.door-l .edge::after{right:18px}
+.door-r .edge::after{left:18px}
+.intro-logo{position:relative;flex:none;width:clamp(230px,30vw,460px);aspect-ratio:1636.7/581;transform:translateY(var(--il-shift,0px)) scale(1.3)}
+.intro-logo svg,.intro-logo img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.intro-logo path{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.il-word{clip-path:inset(0 0 17.4% 0);opacity:0}
+.il-tag{clip-path:inset(82.6% 100% 0 0)}
+.intro-say{font-family:var(--display);font-weight:800;font-size:clamp(30px,8.2vw,100px);line-height:1.02;letter-spacing:-.03em}
+.intro-say .ln{display:block;overflow:hidden;padding:.1em .08em .2em;margin:-.1em 0 -.2em}
+.intro-say b{display:inline-block;font-weight:inherit;transform:translateY(130%)}
+.intro-foot{position:absolute;left:0;right:0;bottom:clamp(14px,3.6vh,32px);z-index:2;display:flex;justify-content:center}
+.intro-cue{display:grid;justify-items:center;gap:10px;border:0;background:none;color:#FFFFFF;font:500 14px/1 var(--body);cursor:pointer;padding:8px 16px;opacity:0}
+.intro-cue i{display:block;width:1px;height:34px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
+.intro-cue i::after{content:"";position:absolute;left:0;top:0;width:1px;height:14px;background:#FFFFFF;animation:hint 1.8s cubic-bezier(.6,0,.3,1) infinite}
+.intro.play .intro-logo path{animation:i-draw 1.3s cubic-bezier(.6,0,.25,1) .15s forwards,i-out .4s ease 1.55s forwards}
+.intro.play .il-word{animation:i-fade .6s ease 1s forwards}
+.intro.play .il-tag{animation:i-wipe .75s cubic-bezier(.2,.7,.2,1) 1.4s forwards}
+.intro.play .intro-logo{animation:i-settle .9s cubic-bezier(.7,0,.2,1) 1.95s forwards}
+.intro.play .intro-say b{animation:i-settle .85s cubic-bezier(.2,.8,.2,1) calc(2.35s + var(--i,0)*.08s) forwards}
+.intro.play .intro-cue{animation:i-fade .6s ease 3.3s forwards}
+.intro.instant *{animation-duration:.01s!important;animation-delay:0s!important}
+@keyframes i-draw{to{stroke-dashoffset:0}}
+@keyframes i-out{to{opacity:0}}
+@keyframes i-fade{to{opacity:1}}
+@keyframes i-wipe{to{clip-path:inset(82.6% 0 0 0)}}
+@keyframes i-settle{to{transform:none}}
+
 /* Kaydırınca beliren öğeler */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
@@ -284,6 +330,22 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 </style>
 </head>
 <body>
+<script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('has-intro')</script>
+<div class="intro" id="intro" role="region" aria-label="Açılış">
+  <div class="door door-l">
+    <div class="door-in">
+      <div class="intro-logo">
+        <svg viewBox="0 0 1636.7 581" aria-hidden="true"><path pathLength="1" d="M163.38 440.12C162.59 440.03 159.56 439.72 156.66 439.44C146.30 438.41 133.57 435.71 123.81 432.46C90.86 421.49 64.15 398.26 47.87 366.40C35.98 343.14 30.47 316.03 31.23 284.47C32.06 250.09 39.93 222.50 55.77 198.47C75.85 168.00 105.07 148.42 141.53 140.98C175.09 134.14 213.91 136.75 241.45 147.69C264.64 156.91 281.40 170.07 297.94 192.04L298.99 193.44L299.02 166.01L299.04 138.58L314.17 138.58L329.30 138.58L329.30 286.63L329.30 434.68L314.17 434.68L299.04 434.68L299.02 408.69L298.99 382.70L297.94 384.10C289.98 394.66 281.14 404.11 273.35 410.38C251.91 427.64 226.19 437.29 194.59 439.94C189.32 440.38 166.78 440.51 163.38 440.12ZM572.37 439.92C539.94 437.07 514.03 426.75 496.04 409.54C480.29 394.48 471.36 376.70 467.27 352.27C466.49 347.61 466.42 339.81 466.28 245.78L466.14 144.33L481.28 144.33L496.42 144.33L496.42 240.51C496.42 302.69 496.60 338.73 496.92 342.45C498.22 357.41 502.50 370.52 509.52 381.02C512.64 385.69 521.07 394.00 525.95 397.23C537.01 404.56 550.68 409.17 568.29 411.53C577.10 412.71 601.29 412.71 609.75 411.53C641.19 407.14 663.44 394.31 678.08 372.16C687.79 357.45 693.72 338.96 695.69 317.29C696.01 313.73 696.19 282.15 696.19 228.06L696.19 144.33L711.56 144.33L726.93 144.33L726.93 289.50L726.93 434.68L711.56 434.68L696.20 434.68L696.08 414.75L695.95 394.82L693.32 398.06C691.87 399.84 688.73 403.26 686.35 405.65C667.72 424.34 643.93 435.19 612.63 439.27C605.55 440.19 580.09 440.60 572.37 439.92ZM897.65 440.11C860.58 437.73 830.75 427.64 810.01 410.46C805.20 406.48 797.43 398.41 794.02 393.86C779.04 373.86 770.77 347.18 769.81 315.74L769.52 306.27L798.59 306.27L827.66 306.27L827.97 312.38C829.64 344.65 836.57 362.87 851.32 373.81C866.42 385.00 891.10 389.91 925.95 388.65C958.02 387.49 978.12 380.35 986.47 367.15C989.98 361.60 991.64 353.09 990.38 347.08C989.39 342.36 987.59 339.23 983.57 335.26C977.79 329.55 967.96 324.64 955.03 320.99C944.17 317.92 946.56 318.32 901.01 312.02C867.89 307.44 857.29 305.29 841.92 300.02C829.92 295.91 819.17 290.43 810.63 284.07C796.15 273.28 787.29 259.56 783.56 242.11C782.29 236.21 781.77 221.73 782.60 215.48C783.90 205.62 786.02 198.37 789.85 190.70C798.01 174.35 811.49 162.08 833.06 151.35C848.28 143.77 863.19 139.37 882.08 136.86C890.05 135.80 914.36 135.40 925.12 136.16C975.12 139.65 1008.95 155.70 1028.55 185.21C1040.27 202.86 1046.08 223.15 1047.53 251.53L1047.85 257.88L1018.32 257.88L988.79 257.88L988.45 251.29C986.64 215.74 975.33 198.71 948.79 191.58C937.47 188.54 926.02 187.29 909.41 187.29C895.33 187.28 888.40 188.02 878.44 190.57C857.89 195.84 844.71 205.98 841.41 219.05C840.23 223.76 840.63 230.08 842.34 233.56C846.50 242.04 856.93 248.25 874.30 252.58C881.46 254.37 891.96 256.27 930.06 262.66C947.10 265.52 963.63 268.44 966.80 269.15C1005.66 277.82 1030.83 293.98 1042.21 317.53C1047.41 328.30 1049.28 337.21 1049.27 351.07C1049.26 363.91 1047.64 372.40 1043.21 382.86C1037.29 396.87 1025.09 409.99 1009.50 419.15C989.11 431.12 965.50 437.76 935.58 439.94C929.54 440.38 903.69 440.49 897.65 440.11ZM1219.16 439.19C1185.97 436.98 1165.16 432.08 1143.77 421.45C1113.60 406.46 1091.69 382.55 1079.60 351.42C1068.77 323.56 1065.91 284.48 1072.43 253.57C1077.10 231.42 1086.65 211.21 1100.85 193.44C1106.05 186.93 1117.46 175.50 1123.70 170.52C1148.86 150.51 1179.34 139.40 1216.66 136.64C1225.63 135.98 1251.63 136.27 1259.26 137.12C1277.31 139.13 1292.58 142.48 1306.22 147.42C1334.09 157.49 1357.52 174.34 1373.56 195.83C1386.38 213.01 1393.67 230.91 1397.37 254.29C1398.34 260.40 1398.45 263.17 1398.64 285.55L1398.85 310.11L1324.73 310.11C1283.97 310.11 1222.90 310.25 1189.03 310.43L1127.45 310.74L1127.74 312.70C1131.03 335.14 1140.53 353.88 1154.76 366.02C1168.04 377.34 1185.38 384.26 1208.59 387.51C1216.06 388.55 1238.77 388.99 1246.88 388.25C1272.23 385.93 1291.84 378.46 1307.88 365.01C1318.56 356.05 1325.70 346.79 1333.01 332.39L1337.15 324.24L1366.55 324.12L1395.95 323.99L1395.63 325.08C1394.59 328.53 1389.49 341.20 1386.30 348.27C1370.96 382.20 1350.34 406.08 1325.24 418.98C1304.78 429.49 1279.55 436.26 1252.34 438.51C1246.07 439.03 1223.66 439.49 1219.16 439.19ZM385.00 232.97L385.00 31.73L400.13 31.73L415.26 31.73L415.26 232.97L415.26 434.20L400.13 434.20L385.00 434.20L385.00 232.97ZM1420.86 287.35L1420.86 141.93L1449.43 141.93L1478.00 141.93L1478.00 155.11C1478.00 162.35 1478.17 168.28 1478.37 168.28C1478.58 168.28 1480.19 167.23 1481.96 165.94C1495.53 156.07 1516.08 147.46 1537.55 142.66C1555.16 138.72 1578.58 136.18 1597.46 136.18L1605.26 136.18L1605.26 161.34L1605.26 186.49L1600.10 186.50C1593.66 186.50 1582.88 187.24 1575.01 188.21C1552.34 191.00 1532.27 198.09 1518.57 208.16C1512.60 212.54 1505.00 220.61 1500.61 227.22C1488.93 244.79 1482.19 265.11 1479.12 291.90C1478.43 297.95 1478.30 307.45 1478.13 365.81L1477.94 432.77L1449.40 432.77L1420.86 432.77L1420.86 287.35ZM198.83 411.24C225.06 407.38 245.99 397.37 263.05 380.50C289.52 354.32 301.60 319.05 298.56 276.81C295.49 234.34 279.27 203.36 249.96 184.03C240.00 177.46 224.80 171.30 211.88 168.60C194.69 164.99 173.96 164.16 157.52 166.40C114.60 172.27 82.08 199.57 68.26 241.34C58.19 271.77 58.59 312.55 69.24 341.52C71.78 348.43 77.57 359.92 81.29 365.45C100.18 393.47 126.93 408.73 163.14 412.15C170.88 412.88 191.22 412.36 198.83 411.24ZM1336.56 258.24C1336.09 255.39 1333.17 245.87 1331.70 242.36C1319.14 212.57 1293.44 193.62 1258.30 188.23C1240.73 185.53 1219.74 186.07 1202.65 189.66C1175.11 195.44 1153.16 210.83 1139.54 233.90C1135.35 241.00 1131.20 251.39 1129.62 258.72L1129.28 260.28L1233.09 260.28L1336.90 260.28L1336.56 258.24Z"></path></svg>
+        <img class="il-word" src="img/aluser-logo-beyaz.svg" alt="aluser, Alüminyum ve Gölgelendirme Sistemleri"><img class="il-tag" src="img/aluser-logo-beyaz.svg" alt="">
+      </div>
+      <p class="intro-say"><span class="ln"><b style="--i:0">1994'ten</b> <b style="--i:1">bu</b> <b style="--i:2">yana</b></span><span class="ln ol-w"><b style="--i:3">çözüm</b> <b style="--i:4">ortağınız.</b></span></p>
+    </div>
+    <i class="edge"></i>
+  </div>
+  <div class="door door-r" aria-hidden="true"><i class="edge"></i></div>
+  <div class="intro-foot"><button class="intro-cue" type="button" id="intro-cue">Kaydırın<i></i></button></div>
+</div>
+
 <header class="hdr" id="top">
   <div class="wrap hdr-in">
     <a class="logo" href="#top" aria-label="Aluser, sayfa başı"><img src="img/aluser-logo-sloganli.svg" alt="aluser, Alüminyum ve Gölgelendirme Sistemleri" width="1637" height="581"></a>
@@ -529,7 +591,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
   var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
   var clamp=function(x,a,b){a=a===undefined?0:a;b=b===undefined?1:b;return Math.min(b,Math.max(a,x))};
   var ease=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
-  var hdr=$('.hdr'), scenes=[], measures=[];
+  var hdr=$('.hdr'), scenes=[], measures=[], introD=0;
 
   /* Menü */
   var mb=$('#menu-btn'), mnav=$('#mnav');
@@ -541,7 +603,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
     a.addEventListener('click',function(e){
       var id=a.getAttribute('href').slice(1), t=id==='top'?document.body:document.getElementById(id);
       if(!t) return; e.preventDefault(); closeMenu();
-      if(id==='top') window.scrollTo({top:0,behavior:RM?'auto':'smooth'});
+      if(id==='top') window.scrollTo({top:introD,behavior:RM?'auto':'smooth'});
       else t.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
     });
   });
@@ -553,6 +615,30 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
     rv.forEach(function(el){io.observe(el)});
   }
+
+  /* Açılış: logo ve slogan belirir; kaydırınca kapılar iki yana açılır */
+  (function(){
+    var el=$('#intro'); if(!el) return;
+    if(RM||!root.classList.contains('has-intro')){root.classList.remove('has-intro');return}
+    var L=$('.door-l',el), Rd=$('.door-r',el), inner=$('.door-in',L), foot=$('.intro-foot',el), cue=$('#intro-cue'), say=$('.intro-say',inner), probe=document.createElement('i');
+    Rd.insertBefore(inner.cloneNode(true),Rd.firstChild);
+    probe.className='intro-probe'; el.appendChild(probe);
+    function measure(){
+      introD=probe.offsetHeight||Math.round(window.innerHeight*.85);
+      var cs=getComputedStyle(inner), gap=parseFloat(cs.rowGap)||0, pad=((parseFloat(cs.paddingBottom)||0)-(parseFloat(cs.paddingTop)||0))/2;
+      el.style.setProperty('--il-shift',((say.offsetHeight+gap)/2+pad).toFixed(1)+'px');
+    }
+    function update(){
+      var p=clamp(window.scrollY/Math.max(1,introD)), e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+      L.style.transform='translate3d('+(-100*e)+'%,0,0)'; Rd.style.transform='translate3d('+(100*e)+'%,0,0)';
+      el.style.setProperty('--seam',clamp(p/.06).toFixed(3)); foot.style.opacity=1-clamp(p/.12);
+      el.classList.toggle('done',p>=1);
+    }
+    cue.addEventListener('click',function(){window.scrollTo({top:introD,behavior:'smooth'})});
+    measures.push(measure); scenes.push(update);
+    if(window.scrollY>4) el.classList.add('instant');
+    requestAnimationFrame(function(){el.classList.add('play')});
+  })();
 
   /* Giriş: pencere açılır */
   (function(){
@@ -572,13 +658,14 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
     }
     function update(){
       if(!on||!R) return;
-      var hr=hero.getBoundingClientRect(), total=Math.max(1,hr.height-R.H), p=clamp((stick-hr.top)/total), e=ease(clamp(p/.8)), k=1-e;
+      var hr=hero.getBoundingClientRect(), total=Math.max(1,hr.height-R.H-introD), p=clamp((stick-hr.top-introD)/total), e=ease(clamp(p/.8)), k=1-e,
+          ii=introD?ease(clamp((window.scrollY/introD-.25)/.75)):1;
       media.style.clipPath='inset('+(R.t*k)+'px '+(R.r*k)+'px '+(R.b*k)+'px '+(R.l*k)+'px)';
       img.style.transform='translate3d('+(R.dx*k)+'px,'+(R.dy*k)+'px,0) scale('+(1+.06*k)+')';
       frame.style.top=(R.t*k)+'px'; frame.style.right=(R.r*k)+'px'; frame.style.bottom=(R.b*k)+'px'; frame.style.left=(R.l*k)+'px';
       frame.style.opacity=1-clamp((e-.5)/.38);
       mull.style.left=(50+50*clamp(e/.72))+'%';
-      var c=clamp(p/.2); copy.style.opacity=1-c; copy.style.transform='translate3d(0,'+(-36*c)+'px,0)'; copy.style.visibility=c>=1?'hidden':'';
+      var c=clamp(p/.2); copy.style.opacity=(1-c)*ii; copy.style.transform='translate3d(0,'+(-36*c+44*(1-ii))+'px,0)'; copy.style.visibility=c>=1?'hidden':'';
       if(hint) hint.style.opacity=1-clamp(p/.08);
       var o=clamp((p-.72)/.16); st.style.opacity=o; st.style.transform='translate3d(0,'+((1-o)*34)+'px,0)'; media.style.setProperty('--scrim',o);
     }
