@@ -181,22 +181,44 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 .products.is-pin .p-track{will-change:transform}
 .products.is-pin .card figure,.products.is-pin .card-cta{height:min(calc(var(--cw)*1.25),calc(100vh - var(--header-h) - 372px));min-height:0}
 
-/* Biyoklimatik: lamel kesiti */
+/* Biyoklimatik: düğmelerle yönetilen pergola kesiti */
 .louvre{padding-block:clamp(84px,12vw,168px)}
-.louvre-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
-.louvre-copy > p{color:var(--muted);margin-top:20px;max-width:30em}
-.states{list-style:none;padding:0;margin-top:34px}
-.states li{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:16px;padding:15px 0;border-top:1px solid var(--line);color:var(--muted);font-size:16px;transition:border-color .35s,color .35s}
-.states li:last-child{border-bottom:1px solid var(--line)}
-.states b{font-family:var(--display);font-weight:600;color:var(--ink);transition:color .35s}
-.states li.on{border-top-color:var(--blue);color:var(--ink)}
-.states li.on b{color:var(--blue)}
-.louvre-fig{background:var(--mist);padding:clamp(16px,3vw,40px) clamp(16px,3vw,40px) clamp(18px,2.4vw,30px)}
+.louvre-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"head fig" "ctrl fig";column-gap:clamp(32px,6vw,96px);row-gap:clamp(22px,3.4vh,34px);align-content:center}
+.louvre-head{grid-area:head;align-self:end}
+.louvre-head > p{color:var(--muted);margin-top:20px;max-width:30em}
+.louvre-ctrl{grid-area:ctrl;align-self:start;display:grid;gap:12px;justify-items:start}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;padding:4px;border-radius:999px;background:var(--mist);width:100%;max-width:430px}
+.seg button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 10px;border:0;border-radius:999px;background:none;font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--ink);cursor:pointer;white-space:nowrap;transition:background-color .25s,color .25s,box-shadow .25s}
+.seg button svg{flex:none}
+.seg button:hover{background:#FFFFFF}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#FFFFFF;box-shadow:0 8px 18px -8px rgba(21,84,184,.7)}
+.seg button.nudge{animation:pg-nudge 1.3s ease-in-out infinite}
+@keyframes pg-nudge{0%,100%{box-shadow:0 0 0 0 rgba(21,84,184,0)}50%{box-shadow:0 0 0 6px rgba(21,84,184,.24)}}
+.pg-status{display:grid;gap:4px;margin-top:12px;min-height:3.6em}
+.pg-status b{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.25;color:var(--ink)}
+.pg-status span{color:var(--muted);font-size:16px}
+.louvre-fig{grid-area:fig;align-self:center;background:var(--mist);padding:clamp(16px,3vw,40px) clamp(16px,3vw,40px) clamp(16px,2.2vw,26px);transition:background-color .6s}
+.louvre-fig.is-rain{background:#DEE6F1}
 .louvre-fig svg{display:block;width:100%;height:auto}
-.louvre-fig .blade{transition:transform .08s linear}
-.dial{display:flex;align-items:center;gap:16px;margin-top:14px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink)}
-.dial .ruler{flex:1;border-bottom-color:var(--pale);background:linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/12px 6px repeat-x,linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/60px 12px repeat-x}
-@media (max-width:860px){.louvre-grid{grid-template-columns:minmax(0,1fr)}}
+.pg-sun,.pg-cloud,.pg-rays,.pg-light,.pg-rain{transition:opacity .5s,transform .6s}
+.pg-cloud{opacity:0;transform:translate(18px,0)}
+.pg-rain{opacity:0}
+.pg-rain line{stroke:var(--sky);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:9 13;animation:pg-fall .55s linear infinite;animation-play-state:paused}
+@keyframes pg-fall{to{stroke-dashoffset:-22}}
+.is-rain .pg-sun{opacity:0;transform:translate(-16px,-8px)}
+.is-rain .pg-rays,.is-rain .pg-light{opacity:0}
+.is-rain .pg-cloud{opacity:1;transform:none}
+.is-rain .pg-rain{opacity:1}
+.is-rain .pg-rain line{animation-play-state:running}
+.dial{display:flex;align-items:center;gap:16px;margin-top:10px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink)}
+.pg-range{-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:32px;margin:0;background:transparent;cursor:pointer;--p:0}
+.pg-range::-webkit-slider-runnable-track{height:16px;border-bottom:1px solid var(--pale);background:linear-gradient(var(--blue),var(--blue)) 0 100%/calc(var(--p)*100%) 3px no-repeat,linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/12px 6px repeat-x,linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/60px 12px repeat-x}
+.pg-range::-moz-range-track{height:16px;border-bottom:1px solid var(--pale);background:linear-gradient(var(--blue),var(--blue)) 0 100%/calc(var(--p)*100%) 3px no-repeat,linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/12px 6px repeat-x,linear-gradient(90deg,var(--pale) 1px,transparent 1px) 0 100%/60px 12px repeat-x}
+.pg-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;margin-top:4px;border-radius:50%;background:var(--blue);border:3px solid #FFFFFF;box-shadow:0 3px 10px rgba(11,42,91,.35)}
+.pg-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--blue);border:3px solid #FFFFFF;box-shadow:0 3px 10px rgba(11,42,91,.35)}
+.pg-range:focus-visible{outline:3px solid var(--sky);outline-offset:4px}
+@media (max-width:860px){.louvre-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "fig" "ctrl"}.seg{max-width:none}}
+@media (prefers-reduced-motion:reduce){.pg-rain line,.seg button.nudge{animation:none}}
 
 /* Neden alüminyum */
 .why{padding-block:0 clamp(84px,12vw,168px)}
@@ -429,34 +451,29 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 
 <section class="louvre" id="biyoklimatik">
   <div class="wrap louvre-grid">
-    <div class="louvre-copy">
+    <div class="louvre-head">
       <h2 class="rv">Güneşi siz yönetin.</h2>
-      <p class="rv" style="--d:.08s">Alüminyum biyoklimatik pergolada lamellerin açısı sizin elinizde. Sayfayı kaydırın, lameller açılsın.</p>
-      <ul class="states" id="states">
-        <li class="on"><b>Kapalı</b><span>Lameller birleşir, yağmurda korur.</span></li>
-        <li><b>Açılı</b><span>Gün ışığı süzülür, gölge sizde kalır.</span></li>
-        <li><b>Açık</b><span>Hava ve gökyüzü içeride.</span></li>
-      </ul>
+      <p class="rv" style="--d:.08s">Alüminyum biyoklimatik pergolada lamellerin açısı sizin elinizde. Düğmelere basın ya da sürgüyü çekin; güneşi de yağmuru da siz yönetin.</p>
     </div>
     <figure class="louvre-fig" id="louvre-fig">
-      <svg viewBox="0 0 560 392" role="img" aria-label="Biyoklimatik pergola kesiti: sayfa kaydırıldıkça lameller kapalı konumdan açık konuma döner ve güneş ışınları içeri girer">
+      <svg viewBox="0 0 560 392" role="img" aria-label="Biyoklimatik pergola kesiti: lameller kapalıyken güneş ve yağmur dışarıda kalır, lameller açıldıkça gün ışığı içeri girer">
         <defs>
-          <clipPath id="ray-clip"><rect id="ray-rect" x="0" y="122" width="560" height="0"></rect></clipPath>
+          <clipPath id="pg-in"><rect x="74" y="104" width="412" height="246"></rect></clipPath>
           <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#B9C7E0" stroke-width="1.5"></line></pattern>
         </defs>
         <rect x="30" y="351" width="500" height="16" fill="url(#hatch)"></rect>
-        <g fill="none" stroke="#1554B8" stroke-width="2" stroke-linecap="round">
-          <circle cx="42" cy="38" r="14"></circle>
+        <g class="pg-sun" fill="none" stroke="#E29C12" stroke-width="2" stroke-linecap="round">
+          <circle cx="42" cy="38" r="14" fill="#FBE3A6"></circle>
           <path d="M42 12v6M42 58v6M16 38h6M62 38h6M23.600 19.600l4.200 4.200M56.200 52.200l4.200 4.200M60.400 19.600l-4.200 4.200M27.800 52.200l-4.200 4.200"></path>
         </g>
-        <g stroke="#5488C9" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round">
-          <path d="M80 50.700l40 69.300M120 50.700l40 69.300M160 50.700l40 69.300M200 50.700l40 69.300M240 50.700l40 69.300M280 50.700l40 69.300M320 50.700l40 69.300M360 50.700l40 69.300M400 50.700l40 69.300"></path>
+        <g class="pg-cloud" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="2" stroke-linejoin="round"><path d="M30 54h36a10.500 10.500 0 0 0 2-20.800a14.500 14.500 0 0 0-28-3.400a12 12 0 0 0-10 24.200z"></path></g>
+        <g class="pg-rays" fill="none" stroke="#E29C12" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"><path d="M80 50.700l40 69.300M120 50.700l40 69.300M160 50.700l40 69.300M200 50.700l40 69.300M240 50.700l40 69.300M280 50.700l40 69.300M320 50.700l40 69.300M360 50.700l40 69.300M400 50.700l40 69.300"></path></g>
+        <g clip-path="url(#pg-in)">
+          <rect id="pg-shade" x="74" y="104" width="412" height="246" fill="#0B2A5B" opacity=".1"></rect>
+          <g class="pg-light"><g id="pg-beams" fill="#F4BE4A" fill-opacity=".38"></g><g id="pg-patches" fill="#E29C12"></g></g>
+          <g class="pg-rain"><g id="pg-rain-in"></g></g>
         </g>
-        <g clip-path="url(#ray-clip)">
-          <g stroke="#5488C9" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round">
-            <path d="M120 120l132.800 230M160 120l132.800 230M200 120l132.800 230M240 120l132.800 230M280 120l132.800 230M320 120l132.800 230M360 120l132.800 230M400 120l122 211.300M440 120l82 142"></path>
-          </g>
-        </g>
+        <g class="pg-rain" id="pg-rain-out"></g>
         <g fill="#FFFFFF" stroke="#0B2A5B" stroke-width="2" stroke-linejoin="round">
           <rect x="196" y="292" width="20" height="50" rx="5"></rect>
           <rect x="196" y="318" width="150" height="24" rx="5"></rect>
@@ -470,21 +487,22 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
           <rect x="62" y="92" width="12" height="258"></rect>
           <rect x="486" y="92" width="12" height="258"></rect>
         </g>
-        <g id="blades" fill="#383E42">
-          <rect class="blade" x="81" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="121" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="161" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="201" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="241" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="281" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="321" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="361" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="401" y="116.500" width="38" height="7" rx="3.5"></rect>
-          <rect class="blade" x="441" y="116.500" width="38" height="7" rx="3.5"></rect>
-        </g>
+        <g id="blades" fill="#383E42"><rect class="blade" x="81" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="121" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="161" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="201" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="241" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="281" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="321" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="361" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="401" y="116.500" width="38" height="7" rx="3.500"></rect><rect class="blade" x="441" y="116.500" width="38" height="7" rx="3.500"></rect></g>
       </svg>
-      <div class="dial" aria-hidden="true"><span>Kapalı</span><div class="ruler" id="dial-ruler"><i></i></div><span>Açık</span></div>
+      <div class="dial"><span>Kapalı</span><input class="pg-range" id="pg-range" type="range" min="0" max="60" step="1" value="0" aria-label="Lamel açısı"><span>Açık</span></div>
     </figure>
+    <div class="louvre-ctrl rv" style="--d:.14s">
+      <div class="seg" role="group" aria-label="Lamel konumu">
+        <button type="button" data-a="0" aria-pressed="true">Kapalı</button>
+        <button type="button" data-a="30" aria-pressed="false">Açılı</button>
+        <button type="button" data-a="60" aria-pressed="false">Açık</button>
+      </div>
+      <div class="seg" role="group" aria-label="Hava durumu">
+        <button type="button" data-w="sun" aria-pressed="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.500v2.200M12 19.300v2.200M2.500 12h2.200M19.300 12h2.200M5.300 5.300l1.600 1.600M17.100 17.100l1.600 1.600M18.700 5.300l-1.600 1.600M6.900 17.100l-1.600 1.600"></path></svg>Güneşli</button>
+        <button type="button" data-w="rain" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15.500a4.500 4.500 0 0 1 .5-8.970 5.500 5.500 0 0 1 10.600 1.570A3.700 3.700 0 0 1 17.500 15.500z"></path><path d="M8.500 18.500l-1 2.500M12.500 18.500l-1 2.500M16.500 18.500l-1 2.500"></path></svg>Yağmurlu</button>
+      </div>
+      <p class="pg-status" id="pg-status" aria-live="polite"><b>Lameller kapalı</b><span>Güneş dışarıda kalır, altında gölge.</span></p>
+    </div>
   </div>
 </section>
 
@@ -708,18 +726,50 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
     measures.push(measure); scenes.push(update);
   })();
 
-  /* Biyoklimatik: lameller döner */
+  /* Biyoklimatik: düğmeler ve sürgüyle lamel açısı; güneş ya da yağmur */
   (function(){
     var fig=$('#louvre-fig'); if(!fig) return;
-    var blades=$$('.blade',fig), rect=$('#ray-rect'), dial=$('#dial-ruler'), states=$$('#states li'), last=-1;
-    function set(p){
-      var a=(60*p).toFixed(2);
-      blades.forEach(function(b){var cx=parseFloat(b.getAttribute('x'))+19; b.setAttribute('transform','rotate('+a+' '+cx+' 120)')});
-      rect.setAttribute('height',(232*clamp((p-.12)/.88)).toFixed(1)); dial.style.setProperty('--p',p.toFixed(4));
-      var s=p<.18?0:(p<.82?1:2); if(s!==last){last=s; states.forEach(function(li,i){li.classList.toggle('on',i===s)})}
+    var sec=$('#biyoklimatik'), NS='http://www.w3.org/2000/svg', MAX=60, RAD=Math.PI/180, S60=Math.sin(60*RAD);
+    var blades=$$('.blade',fig), shade=$('#pg-shade'), range=$('#pg-range'), rainIn=$('#pg-rain-in'),
+        stBtns=$$('[data-a]',sec), wBtns=$$('[data-w]',sec), stT=$('#pg-status b'), stD=$('#pg-status span');
+    function mk(tag,parent,attrs){var n=document.createElementNS(NS,tag); for(var k in attrs) n.setAttribute(k,attrs[k]); parent.appendChild(n); return n}
+    var beams=[], patches=[], i, x;
+    for(i=0;i<9;i++){ beams.push(mk('polygon',$('#pg-beams'),{})); patches.push(mk('rect',$('#pg-patches'),{y:345,height:5})); mk('line',rainIn,{x1:122+40*i,y1:127,x2:120+40*i,y2:349}); }
+    for(i=0,x=78;x<=486;x+=24,i++) mk('line',$('#pg-rain-out'),{x1:x+3,y1:14+(i*7)%18,x2:x,y2:91});
+    [38,52,508,522].forEach(function(px,n){mk('line',$('#pg-rain-out'),{x1:px+9,y1:16+n*5,x2:px,y2:349})});
+    var TXT={sun:[['Lameller kapalı','Güneş dışarıda kalır, altında gölge.'],['Lameller açılı','Gün ışığı süzülür, gölge sizde kalır.'],['Lameller açık','Güneş, hava ve gökyüzü içeride.']],
+             rain:[['Lameller kapalı','Lameller birleşir, yağmurda korur.'],['Yağmur başladı','Bir dokunuşla lamelleri kapatın.'],['Yağmur başladı','Bir dokunuşla lamelleri kapatın.']]};
+    var A=0, raf=0, weather='sun', touched=false, lastKey='';
+    function render(){
+      var a=A, f=a<2?0:clamp(1-38*Math.sin((MAX-a)*RAD)/(40*S60),0,.92), w=40*f, fr=a<2?0:clamp((1-.95*Math.cos(a*RAD))*1.7);
+      blades.forEach(function(b){b.setAttribute('transform','rotate('+a.toFixed(2)+' '+(parseFloat(b.getAttribute('x'))+19)+' 120)')});
+      for(var n=0;n<9;n++){
+        var l=120+40*n-w/2, r=l+w;
+        beams[n].setAttribute('points',l.toFixed(1)+',120 '+r.toFixed(1)+',120 '+(r+132.8).toFixed(1)+',350 '+(l+132.8).toFixed(1)+',350');
+        patches[n].setAttribute('x',(l+130).toFixed(1)); patches[n].setAttribute('width',w.toFixed(1));
+      }
+      shade.setAttribute('opacity',(.1*(1-f)).toFixed(3)); rainIn.style.opacity=fr.toFixed(3);
+      range.value=Math.round(a); range.style.setProperty('--p',(a/MAX).toFixed(4));
+      var st=a<8?0:(a>52?2:1), key=weather+st; if(key===lastKey) return; lastKey=key;
+      stBtns.forEach(function(b,n){b.setAttribute('aria-pressed',String(n===st)); b.classList.toggle('nudge',weather==='rain'&&st>0&&n===0)});
+      wBtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-w')===weather))});
+      stT.textContent=TXT[weather][st][0]; stD.textContent=TXT[weather][st][1];
     }
-    if(RM){set(1);return}
-    scenes.push(function(){var r=fig.getBoundingClientRect(), vh=window.innerHeight; set(ease(clamp((vh*.88-r.top)/(vh*.6+r.height*.35))))});
+    function go(to,instant){
+      cancelAnimationFrame(raf); to=clamp(to,0,MAX);
+      if(RM||instant){A=to;render();return}
+      var from=A, t0=performance.now(), dur=Math.max(380,Math.abs(to-from)/MAX*1300);
+      (function step(t){var k=clamp((t-t0)/dur); A=from+(to-from)*ease(k); render(); if(k<1) raf=requestAnimationFrame(step)})(t0);
+    }
+    stBtns.forEach(function(b){b.addEventListener('click',function(){touched=true;go(parseFloat(b.getAttribute('data-a')))})});
+    range.addEventListener('input',function(){touched=true;cancelAnimationFrame(raf);A=parseFloat(range.value);render()});
+    wBtns.forEach(function(b){b.addEventListener('click',function(){touched=true;weather=b.getAttribute('data-w');fig.classList.toggle('is-rain',weather==='rain');render()})});
+    render();
+    /* İlk görünüşte lameller bir kez kendiliğinden açılır */
+    if('IntersectionObserver' in window){
+      var seen=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){seen.disconnect();setTimeout(function(){if(!touched) go(MAX)},400)}})},{threshold:.6});
+      seen.observe(fig);
+    } else go(MAX,true);
   })();
 
   /* Süreç: çizgi kaydırdıkça ilerler */
