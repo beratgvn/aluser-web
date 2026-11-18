@@ -38,7 +38,7 @@
   --pale:#B9C7E0;
   --display:"Poppins","Segoe UI",system-ui,-apple-system,sans-serif;
   --body:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
-  --header-h:72px;
+  --header-h:88px;
   --gl:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px));
   --gr:max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px));
   color-scheme:light;
@@ -78,7 +78,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 .hdr.scrolled{border-bottom-color:var(--line)}
 .hdr-in{height:var(--header-h);display:flex;align-items:center;gap:clamp(16px,3vw,36px)}
 .logo{display:block;flex:none}
-.logo img{height:34px;width:auto;display:block}
+.logo img{height:62px;width:auto;display:block}
 .nav{display:flex;gap:clamp(18px,2.4vw,34px);margin-left:auto;font-family:var(--display);font-weight:500;font-size:15px}
 .nav a{text-decoration:none;position:relative;padding:8px 0}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .3s}
@@ -95,11 +95,11 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 .mnav .wrap{display:grid;padding-block:10px 22px}
 .mnav a{font-family:var(--display);font-weight:600;font-size:22px;text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line)}
 @media (max-width:900px){
-  :root{--header-h:64px}
+  :root{--header-h:74px}
   .nav{display:none}
   .call{margin-left:auto}
   .menu-btn{display:block}
-  .logo img{height:29px}
+  .logo img{height:52px}
 }
 @media (max-width:520px){
   .call{padding:0 6px}
@@ -286,7 +286,7 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
 <body>
 <header class="hdr" id="top">
   <div class="wrap hdr-in">
-    <a class="logo" href="#top" aria-label="Aluser, sayfa başı"><img src="img/aluser-logo.svg" alt="aluser" width="1637" height="472"></a>
+    <a class="logo" href="#top" aria-label="Aluser, sayfa başı"><img src="img/aluser-logo-sloganli.svg" alt="aluser, Alüminyum ve Gölgelendirme Sistemleri" width="1637" height="581"></a>
     <nav class="nav" aria-label="Ana menü">
       <a href="#urunler">Ürünler</a>
       <a href="#hakkimizda">Hakkımızda</a>
