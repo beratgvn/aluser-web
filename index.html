@@ -20,8 +20,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="css/site.css?v=202611181549">
-<link rel="preload" as="image" href="img/hero.webp" imagesrcset="img/hero-1280.webp 1280w, img/hero.webp 2560w" imagesizes="100vw">
+<link rel="stylesheet" href="css/site.css?v=202611181723">
+<link rel="preload" as="image" href="img/hero-kapi-1600.webp" imagesrcset="img/hero-kapi-1600.webp 1600w, img/hero-kapi-2560.webp 2560w" imagesizes="100vw" media="not all and (max-aspect-ratio: 3/5)">
+<link rel="preload" as="image" href="img/hero-kapi-m.webp" media="(max-aspect-ratio: 3/5)">
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
@@ -62,12 +63,12 @@
         </div>
       </div>
       <div class="hero-slot">
-        <div class="hero-media"><img src="img/hero.webp" srcset="img/hero-1280.webp 1280w, img/hero.webp 2560w" sizes="100vw" width="2560" height="1429" alt="Antrasit alüminyum sürme kapıları denize açılan ferah bir salon" fetchpriority="high"></div>
-        <div class="hero-frame" aria-hidden="true"><i class="hf-track"></i><div class="sash sash-fix"><i class="glass"></i></div><div class="sash sash-slide"><i class="glass"></i><i class="hs-handle"><b></b></i></div></div>
+        <div class="hero-media"><div class="hero-pic"><picture><source media="(max-aspect-ratio: 3/5)" srcset="img/hero-kapi-m.webp" width="922" height="1536"><img src="img/hero-kapi-1600.webp" srcset="img/hero-kapi-1600.webp 1600w, img/hero-kapi-2560.webp 2560w" sizes="100vw" width="2560" height="1440" alt="Antrasit alüminyum sürme kapıları denize açılan ferah bir salon" fetchpriority="high"></picture><canvas class="hero-seq" width="1600" height="900" aria-hidden="true"></canvas></div></div>
+        <div class="hero-frame" aria-hidden="true"></div>
       </div>
     </div>
     <div class="hero-statement"><div class="wrap"><p><span>Her ölçekte proje,</span> <span class="ol-w">her ölçekte stok.</span></p></div></div>
-    <div class="wrap hint" aria-hidden="true"><i></i>Kaydırın, pencere açılsın</div>
+    <div class="wrap hint" aria-hidden="true"><i></i>Kaydırın, kapılar açılsın</div>
   </div>
 </section>
 
@@ -221,6 +222,6 @@
   </div>
 </section>
 
-<script src="js/site.js?v=202611181549"></script>
+<script src="js/site.js?v=202611181723"></script>
 </body>
 </html>
