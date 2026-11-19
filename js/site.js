@@ -245,3 +245,5 @@
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(relayout);
   relayout();
 })();
+/* Yeni açılan sayfa en üstten başlar (geri/ileri ve yenilemede konum korunur) */
+(function(){try{var n=performance.getEntriesByType('navigation')[0];if(n&&n.type!=='navigate')return}catch(e){}if(location.hash)return;var f=function(){if((window.pageYOffset||0)>0)window.scrollTo(0,0)};f();addEventListener('pageshow',function(e){if(!e.persisted)f()})})();
