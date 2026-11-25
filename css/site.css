@@ -617,3 +617,16 @@ h3{font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-.005em}
   .hint i::after{animation:none}
   .card img,.btn svg{transition:none}
 }
+
+.quote,.field{grid-template-columns:minmax(0,1fr)}
+@media (max-width:360px){.quote .btn{padding-left:16px;padding-right:16px;font-size:15px}}
+
+/* Açılış videosu (yalnızca ana sayfa, oturumda bir kez) */
+.intro{display:none}
+.intro-on .intro{display:block;position:fixed;inset:0;z-index:200;background:#0A2A63;opacity:1;transition:opacity .7s ease}
+.intro-on body{overflow:hidden}
+.intro-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media (max-aspect-ratio:1/1){.intro-v{object-fit:contain}}
+.intro-skip{position:absolute;right:max(20px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));font:600 15px/1 Poppins,Inter,sans-serif;color:#fff;background:rgba(10,42,99,.55);border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:13px 22px;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.intro-skip:hover,.intro-skip:focus-visible{background:#1554B8;border-color:#fff;outline:0}
+.intro.out{opacity:0;pointer-events:none}
