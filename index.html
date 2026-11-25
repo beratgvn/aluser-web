@@ -20,12 +20,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="css/site.css?v=202611191439">
+<link rel="stylesheet" href="css/site.css?v=202611251300">
 <link rel="preload" as="image" href="img/hero-kapi-1600.webp" imagesrcset="img/hero-kapi-1600.webp 1600w, img/hero-kapi-2560.webp 2560w" imagesizes="100vw" media="not all and (max-aspect-ratio: 3/5)">
 <link rel="preload" as="image" href="img/hero-kapi-m.webp" media="(max-aspect-ratio: 3/5)">
-<script>document.documentElement.className+=' js'</script>
+<script>document.documentElement.className+=' js';try{if(!sessionStorage.getItem('aluserIntro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.className+=' intro-on'}catch(e){}</script>
 </head>
 <body>
+<div class="intro" id="intro" aria-hidden="true">
+  <video class="intro-v" muted playsinline preload="auto" poster="img/intro/acilis-poster.jpg" disablepictureinpicture>
+    <source media="(max-aspect-ratio: 1/1)" src="img/intro/acilis-kare.mp4" type="video/mp4">
+    <source src="img/intro/acilis.mp4" type="video/mp4">
+  </video>
+  <button class="intro-skip" type="button">Geç</button>
+</div>
 <header class="hdr">
   <div class="wrap hdr-in">
     <a class="logo" href="./" aria-label="Aluser, ana sayfa"><img src="img/aluser-logo-sloganli.svg" alt="aluser, Alüminyum ve Gölgelendirme Sistemleri" width="1637" height="581"></a>
@@ -222,6 +229,6 @@
   </div>
 </section>
 
-<script src="js/site.js?v=202611191439"></script>
+<script src="js/site.js?v=202611251300"></script>
 </body>
 </html>
