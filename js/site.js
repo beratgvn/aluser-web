@@ -248,16 +248,18 @@
 /* Yeni açılan sayfa en üstten başlar (geri/ileri ve yenilemede konum korunur) */
 (function(){try{var n=performance.getEntriesByType('navigation')[0];if(n&&n.type!=='navigate')return}catch(e){}if(location.hash)return;var f=function(){if((window.pageYOffset||0)>0)window.scrollTo(0,0)};f();addEventListener('pageshow',function(e){if(!e.persisted)f()})})();
 
-/* Açılış videosu */
-(function(){var el=document.getElementById('intro');if(!el)return;var root=document.documentElement;
-if(root.className.indexOf('intro-on')<0){el.parentNode.removeChild(el);return}
-var v=el.querySelector('video'),done=false,t;
-function end(){if(done)return;done=true;clearTimeout(t);try{sessionStorage.setItem('aluserIntro','1')}catch(e){}
-el.className+=' out';setTimeout(function(){root.className=root.className.replace(' intro-on','');if(el.parentNode)el.parentNode.removeChild(el)},720)}
-el.querySelector('.intro-skip').addEventListener('click',end);
-v.addEventListener('ended',function(){setTimeout(end,500)});v.addEventListener('error',end);
-v.addEventListener('playing',function(){clearTimeout(t);t=setTimeout(end,12000)});
-t=setTimeout(end,4000);
-var p=v.play();if(p&&p.catch)p.catch(end);
-document.addEventListener('keydown',function(e){if(e.key==='Escape')end()});
+/* Mavi Plan açılış penceresi (ana sayfa, oturumda bir kez) */
+(function(){var el=document.getElementById('mp');if(!el)return;var root=document.documentElement,seen=false;
+try{seen=!!sessionStorage.getItem('aluserMaviPlan')}catch(e){}
+if(seen)return;var prev=null;
+function close(){try{sessionStorage.setItem('aluserMaviPlan','1')}catch(e){}
+el.classList.remove('on');root.classList.remove('mp-open');document.removeEventListener('keydown',key);
+setTimeout(function(){el.hidden=true;if(prev&&prev.focus)prev.focus()},460)}
+function key(e){if(e.key==='Escape')close()}
+function open(){prev=document.activeElement;el.hidden=false;root.classList.add('mp-open');
+requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('on');var x=el.querySelector('.mp-x');if(x)x.focus({preventScroll:true})})});
+document.addEventListener('keydown',key)}
+el.addEventListener('click',function(e){if(e.target===el)close()});
+el.querySelector('.mp-x').addEventListener('click',close);
+setTimeout(open,700);
 })();

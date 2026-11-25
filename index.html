@@ -20,18 +20,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="css/site.css?v=202611251300">
+<link rel="stylesheet" href="css/site.css?v=202611251500">
 <link rel="preload" as="image" href="img/hero-kapi-1600.webp" imagesrcset="img/hero-kapi-1600.webp 1600w, img/hero-kapi-2560.webp 2560w" imagesizes="100vw" media="not all and (max-aspect-ratio: 3/5)">
 <link rel="preload" as="image" href="img/hero-kapi-m.webp" media="(max-aspect-ratio: 3/5)">
-<script>document.documentElement.className+=' js';try{if(!sessionStorage.getItem('aluserIntro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.className+=' intro-on'}catch(e){}</script>
+<script>document.documentElement.className+=' js'</script>
 </head>
 <body>
-<div class="intro" id="intro" aria-hidden="true">
-  <video class="intro-v" muted playsinline preload="auto" poster="img/intro/acilis-poster.jpg" disablepictureinpicture>
-    <source media="(max-aspect-ratio: 1/1)" src="img/intro/acilis-kare.mp4" type="video/mp4">
-    <source src="img/intro/acilis.mp4" type="video/mp4">
-  </video>
-  <button class="intro-skip" type="button">Geç</button>
+<div class="mp" id="mp" role="dialog" aria-modal="true" aria-labelledby="mp-t" hidden>
+  <div class="mp-glass">
+    <button class="mp-x" type="button" aria-label="Kapat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg></button>
+    <div class="mp-logo"><img src="img/aluser-logo-beyaz.svg" alt="aluser"></div>
+    <p class="mp-sub">Alüminyum Pencere ve Kapı Sistemleri</p>
+    <h2 class="mp-t" id="mp-t"><b>MAVİ</b> <span>PLAN</span></h2>
+    <i class="mp-line" aria-hidden="true"></i>
+    <p class="mp-pill">Size Özel Ödeme Planı</p>
+    <div class="mp-cta">
+      <a class="mp-btn mp-call" href="tel:+905391084545">Bizi arayın <b>0539 108 45 45</b></a>
+      <a class="mp-btn mp-wa" href="https://wa.me/905391084545?text=Merhaba%2C%20Mavi%20Plan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+    </div>
+  </div>
 </div>
 <header class="hdr">
   <div class="wrap hdr-in">
@@ -229,6 +236,6 @@
   </div>
 </section>
 
-<script src="js/site.js?v=202611251300"></script>
+<script src="js/site.js?v=202611251500"></script>
 </body>
 </html>
